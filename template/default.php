@@ -4,8 +4,8 @@
         </div>
     </div>
     <div class="row">
-        <div id="sidebar" class="col-3"></div>
-        <div id="display" class="col-9"></div>
+        <div id="sidebar" class="col-sm-2 col-auto px-0 collapse show collapse-horizontal overflow-hidden"></div>
+        <div id="display" class="col-sm col border-start ps-md-2 pt-2"></div>
     </div>
 </div>
 
