@@ -16,25 +16,9 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
     <script>
-		$(function(){
-			loadPage("../template/default.php","root");
-			loadPage("../main/topbar.php","topbar");
-			loadPage("../main/sidebar.php","sidebar");
-			loadPage("../main/dashbord.php","display");
-		})
-    function loadPage(url, target) {
-        $.ajax({
-                method: "POST",
-                url: url,
-                data: {
-                    name: "John",
-                    location: "Boston"
-                }
-            })
-            .done(function(msg) {
-				$("#" + target).html(msg);
-            });
-    }
+    $(function() {
+        loadPage("../template/default.php", "root");
+    })
     </script>
 </body>
 

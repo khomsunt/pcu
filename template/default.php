@@ -7,5 +7,12 @@
         <div id="sidebar" class="col-3"></div>
         <div id="display" class="col-9"></div>
     </div>
-  <!-- Content here -->
 </div>
+
+<script>
+$(function() {
+    loadPage("../main/topbar.php", "topbar");
+    loadPage("../main/sidebar.php", "sidebar");
+    loadPage("../main/dashbord.php", "display");
+})
+</script>
