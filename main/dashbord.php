@@ -1,11 +1,11 @@
 <div class="container-fluid col-12 p-4 bg-primary text-white shadow">
     <div class="row">
-        <div class="col-lg-8 col-12">
+        <div class="col-lg-8 col-12 pt-4">
             <h1><i class="bi bi-ubuntu"></i> Dashboard</h1>
             <p class="text-info">Example dashboard overview and content summary</p>
             <br><br><br><br>
         </div>
-        <div class="col-lg-4 col-12">
+        <div class="col-lg-4 col-12 pt-4">
             <input id="startDate" class="form-control" type="date" />
 
         </div>
@@ -192,6 +192,74 @@
             </div>
         </div>
     </div>
+
+
+    <div class="col-sm-6 col-12 p-2">
+        <div class="card shadow">
+            <div class="card-header">
+                graph 1
+            </div>
+            <div class="card-body">
+                graph<br>
+                graph<br>
+                graph<br>
+                graph<br>
+                graph<br>
+                graph<br>
+                graph<br>
+                graph<br>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-12 p-2">
+        <div class="card shadow">
+            <div class="card-header">
+                graph 2
+            </div>
+            <div class="card-body">
+                graph<br>
+                graph<br>
+                graph<br>
+                graph<br>
+                graph<br>
+                graph<br>
+                graph<br>
+                graph<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 p-2">
+        <div class="card shadow">
+            <div class="card-header">
+                table
+            </div>
+            <div class="card-body">
+                table<br>
+                table<br>
+                table<br>
+                table<br>
+                table<br>
+                table<br>
+                table<br>
+                table<br>
+                table<br>
+                table<br>
+                table<br>
+                table<br>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-info pt-5">
+        <div class="col-sm-8 col-12">
+            Copyright © Your Website 2021
+        </div>
+        <div class="col-sm-4 col-12 text-end">
+            Privacy Policy · Terms & Conditions
+        </div>
+    </div>
+
 </div>
 
 
