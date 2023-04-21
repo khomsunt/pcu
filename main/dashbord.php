@@ -197,34 +197,18 @@
     <div class="col-sm-6 col-12 p-2">
         <div class="card shadow">
             <div class="card-header">
-                graph 1
+                chart 1
             </div>
-            <div class="card-body">
-                graph<br>
-                graph<br>
-                graph<br>
-                graph<br>
-                graph<br>
-                graph<br>
-                graph<br>
-                graph<br>
+            <div class="card-body" id="chart01">
             </div>
         </div>
     </div>
     <div class="col-sm-6 col-12 p-2">
         <div class="card shadow">
             <div class="card-header">
-                graph 2
+                chart 2
             </div>
-            <div class="card-body">
-                graph<br>
-                graph<br>
-                graph<br>
-                graph<br>
-                graph<br>
-                graph<br>
-                graph<br>
-                graph<br>
+            <div class="card-body" id="chart02">
             </div>
         </div>
     </div>
@@ -234,19 +218,7 @@
             <div class="card-header">
                 table
             </div>
-            <div class="card-body">
-                table<br>
-                table<br>
-                table<br>
-                table<br>
-                table<br>
-                table<br>
-                table<br>
-                table<br>
-                table<br>
-                table<br>
-                table<br>
-                table<br>
+            <div class="card-body" id="table01">
             </div>
         </div>
     </div>
@@ -262,7 +234,11 @@
 
 </div>
 
+<script>
+$(function() {
+    loadPage("../main/chart01.php", "chart01");
+    loadPage("../main/chart02.php", "chart02");
+    loadPage("../main/table01.php", "table01");
 
-
-<div Class="row">
-</div>
+})
+</script>
