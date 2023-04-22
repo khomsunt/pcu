@@ -131,11 +131,18 @@
     <div class="col-12">
         <div class="row">
             <div class="col-lg-3 col-12 p-2">
-                <div class="card shadow bg-primary">
+                <div class="card shadow bg-primary text-white">
                     <div class="card-body">
-                        fsdf
-                        <br><br>
-                        <br><br>
+                        <div class="row">
+                            <div class="col-8">
+                                จำนวนทั้งหมด
+                                <h1>50,000</h1>
+                                ราย
+                            </div>
+                            <div class="col-4">
+                                <i class="bi bi-people-fill h1"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body border-top">
                         <div class="d-flex justify-content-between align-items-start">
@@ -146,11 +153,18 @@
                 </div>
             </div>
             <div class="col-lg-3 col-12 p-2">
-                <div class="card shadow bg-success">
+                <div class="card shadow bg-success text-white">
                     <div class="card-body">
-                        fsdf
-                        <br><br>
-                        <br><br>
+                        <div class="row">
+                            <div class="col-8">
+                                สำเร็จ
+                                <h1>500</h1>
+                                ราย
+                            </div>
+                            <div class="col-4">
+                                <i class="bi bi-bag-check-fill h1"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body border-top">
                         <div class="d-flex justify-content-between align-items-start">
@@ -161,11 +175,18 @@
                 </div>
             </div>
             <div class="col-lg-3 col-12 p-2">
-                <div class="card shadow bg-warning">
+                <div class="card shadow bg-warning text-primary">
                     <div class="card-body">
-                        fsdf
-                        <br><br>
-                        <br><br>
+                        <div class="row">
+                            <div class="col-8">
+                                ระหว่างดำเนินการ
+                                <h1>5,000</h1>
+                                ราย
+                            </div>
+                            <div class="col-4">
+                                <i class="bi bi-bag-heart-fill h1"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body border-top">
                         <div class="d-flex justify-content-between align-items-start">
@@ -176,11 +197,18 @@
                 </div>
             </div>
             <div class="col-lg-3 col-12 p-2">
-                <div class="card shadow bg-danger">
+                <div class="card shadow bg-danger text-warning">
                     <div class="card-body">
-                        fsdf
-                        <br><br>
-                        <br><br>
+                        <div class="row">
+                            <div class="col-8">
+                                ไม่สำเร็จ
+                                <h1>44,500</h1>
+                                ราย
+                            </div>
+                            <div class="col-4">
+                                <i class="bi bi-bag-x-fill h1"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body border-top">
                         <div class="d-flex justify-content-between align-items-start">
