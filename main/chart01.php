@@ -3,8 +3,7 @@
 </div>
 
 <script>
-const ctx = document.getElementById('myChart01');
-new Chart(ctx, {
+new Chart($("#myChart01"), {
     type: 'bar',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

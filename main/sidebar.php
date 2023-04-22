@@ -1,7 +1,32 @@
-<ul class="list-group pt-2">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-    <li class="list-group-item">A fourth item</li>
-    <li class="list-group-item">And a fifth one</li>
-</ul>
+<div class="sidebar-btn list-group pt-2">
+    <a href="#" class="list-group-item list-group-item-action active" url="../main/dashbord.php"
+        target_div="display">Dashboard</a>
+    <a href="#" class="list-group-item list-group-item-action" url="../main/test.php" target_div="display">Test</a>
+    <a href="#" class="list-group-item list-group-item-action" url="../main/test.php"
+        target_div="display">Dashboard1</a>
+    <a href="#" class="list-group-item list-group-item-action" url="../main/test.php"
+        target_div="display">Dashboard2</a>
+    <a href="#" class="list-group-item list-group-item-action" url="../main/test.php"
+        target_div="display">Dashboard3</a>
+    <a href="#" class="list-group-item list-group-item-action" url="../main/test.php"
+        target_div="display">Dashboard4</a>
+    <a href="#" class="list-group-item list-group-item-action" url="../main/test.php"
+        target_div="display">Dashboard5</a>
+    <a href="#" class="list-group-item list-group-item-action" url="../main/test.php"
+        target_div="display">Dashboard6</a>
+</div>
+<script>
+$(function() {
+    loadPage("../main/dashbord.php", "display");
+    $(document).on("click touchstart", ".sidebar-btn > a", function(e) {
+        e.preventDefault();
+        setActiveSidebar($(this));
+        loadPage($(this).attr("url"), $(this).attr("target_div"));
+    });
+})
+
+function setActiveSidebar(this_btn) {
+    $(".sidebar-btn > a").removeClass("active");
+    $(this_btn).addClass("active");
+}
+</script>

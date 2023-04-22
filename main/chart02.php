@@ -3,7 +3,7 @@
 </div>
 
 <script>
-const data = {
+var data = {
     labels: ['2563', '2564', '2565', '2566'],
     datasets: [{
         label: 'Dataset 1',
