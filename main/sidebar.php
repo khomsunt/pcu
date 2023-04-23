@@ -1,4 +1,4 @@
-<div class="sidebar-btn list-group pt-2">
+<div class="sidebar-btn list-group pt-3 p-1 list-group-flush">
     <a href="#" class="list-group-item list-group-item-action" url="../dashboard/dashbord.php"
         target_div="display">Dashboard</a>
     <a href="#" class="list-group-item list-group-item-action" url="../dashboard/test.php" target_div="display">Test</a>
