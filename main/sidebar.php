@@ -17,8 +17,7 @@
 </div>
 <script>
 $(function() {
-    loadPage("../dashboard/dashbord.php", "display");
-    $(document).on("click touchstart", ".sidebar-btn > a", function(e) {
+    $(document).on("click touchstart", ".sidebar-btn > a, .navbar-btn > a", function(e) {
         e.preventDefault();
         setActiveSidebar($(this));
         loadPage($(this).attr("url"), $(this).attr("target_div"));
