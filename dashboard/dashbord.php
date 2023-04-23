@@ -136,7 +136,7 @@
                         <div class="row">
                             <div class="col-8">
                                 จำนวนทั้งหมด
-                                <h1>50,000</h1>
+                                <h2>50,000</h2>
                                 ราย
                             </div>
                             <div class="col-4">
@@ -158,7 +158,7 @@
                         <div class="row">
                             <div class="col-8">
                                 สำเร็จ
-                                <h1>500</h1>
+                                <h2>500</h2>
                                 ราย
                             </div>
                             <div class="col-4">
@@ -180,7 +180,7 @@
                         <div class="row">
                             <div class="col-8">
                                 ระหว่างดำเนินการ
-                                <h1>5,000</h1>
+                                <h2>5,000</h2>
                                 ราย
                             </div>
                             <div class="col-4">
@@ -202,7 +202,7 @@
                         <div class="row">
                             <div class="col-8">
                                 ไม่สำเร็จ
-                                <h1>44,500</h1>
+                                <h2>44,500</h2>
                                 ราย
                             </div>
                             <div class="col-4">

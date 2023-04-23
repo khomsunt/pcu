@@ -1,3 +1,6 @@
+<?php
+include "../include/connection.php";
+?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand navbar-btn" href="#" url="../dashboard/dashbord.php" target_div="display">
@@ -40,11 +43,22 @@
 
 <script>
 $(function() {
+    <?php
+if (isset($_SESSION['current_page'])) {
+    ?>
+    loadPage("<?php echo $_SESSION['current_page']['url']; ?>",
+        "<?php echo $_SESSION['current_page']['target_div']; ?>");
+    <?php
+} else {
+    ?>
     loadPage("../dashboard/dashbord.php", "display");
+    <?php
+}?>
     $(document).on("click touchstart", ".navbar-btn", function(e) {
         e.preventDefault();
         setActiveSidebar($(this));
         loadPage($(this).attr("url"), $(this).attr("target_div"));
+        setCurrentPage($(this).attr("url"), $(this).attr("target_div"));
     });
 })
 </script>

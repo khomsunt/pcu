@@ -1,4 +1,4 @@
-<div class="container-fluid p-0">
+<div class="container p-0">
     <div class="row" style="margin:0; padding:0;">
         <div id="topbar" class="col-12 shadow"></div>
         <div id="sidebar"

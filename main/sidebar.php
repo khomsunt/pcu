@@ -1,5 +1,5 @@
 <div class="sidebar-btn list-group pt-2">
-    <a href="#" class="list-group-item list-group-item-action active" url="../dashboard/dashbord.php"
+    <a href="#" class="list-group-item list-group-item-action" url="../dashboard/dashbord.php"
         target_div="display">Dashboard</a>
     <a href="#" class="list-group-item list-group-item-action" url="../dashboard/test.php" target_div="display">Test</a>
     <a href="#" class="list-group-item list-group-item-action" url="../dashboard/test.php"
@@ -17,10 +17,11 @@
 </div>
 <script>
 $(function() {
-    $(document).on("click touchstart", ".sidebar-btn > a, .navbar-btn > a", function(e) {
+    $(document).on("click touchstart", ".sidebar-btn > a", function(e) {
         e.preventDefault();
         setActiveSidebar($(this));
         loadPage($(this).attr("url"), $(this).attr("target_div"));
+        setCurrentPage($(this).attr("url"), $(this).attr("target_div"));
     });
 })
 
