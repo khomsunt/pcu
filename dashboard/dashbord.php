@@ -264,9 +264,9 @@
 
 <script>
 $(function() {
-    loadPage("../main/chart01.php", "chart01");
-    loadPage("../main/chart02.php", "chart02");
-    loadPage("../main/table01.php", "table01");
+    loadPage("../chart/chart01.php", "chart01");
+    loadPage("../chart/chart02.php", "chart02");
+    loadPage("../table/table01.php", "table01");
 
 })
 </script>

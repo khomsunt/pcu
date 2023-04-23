@@ -1,13 +1,21 @@
+<?php
+include "../include/connection.php";
+$sql = "select * from chart02 where status_id=:status_id order by chart_id";
+$stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+$stmt->execute(['status_id' => 1]);
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <div>
     <canvas id="myChart02"></canvas>
 </div>
 
 <script>
+var rows = <?php echo json_encode($rows); ?>;
 var data = {
-    labels: ['2563', '2564', '2565', '2566'],
+    labels: rows.map(row => row.chart_name),
     datasets: [{
         label: 'Dataset 1',
-        data: [45, 50, 34, 25],
+        data: rows.map(row => row.chart_value),
         borderColor: '#36A2EB',
         backgroundColor: '#9BD0F5',
     }]
