@@ -1,7 +1,7 @@
 <?php
 include "../include/connection.php";
 ?>
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+<nav id="mainTopbar" class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand navbar-btn" href="#" url="../dashboard/dashbord.php" target_div="display">
             <i class="bi bi-ubuntu"></i>
@@ -18,10 +18,11 @@ include "../include/connection.php";
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Dropdown
+                        อุบัติเหตุ
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item navbar-btn" href="#" url="../map/sample.php"
+                                target_div="display">เพิ่มข้อมูลอุบัติเหตุ</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li>
                             <hr class="dropdown-divider">
