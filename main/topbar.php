@@ -3,7 +3,7 @@ include "../include/connection.php";
 ?>
 <nav id="mainTopbar" class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand navbar-btn" href="#" url="../dashboard/dashbord.php" target_div="display">
+        <a class="navbar-brand navbar-btn" href="#" url="../layout/dashboard.php" target_div="display">
             <i class="bi bi-ubuntu"></i>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -21,7 +21,7 @@ include "../include/connection.php";
                         อุบัติเหตุ
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item navbar-btn" href="#" url="../map/sample.php"
+                        <li><a class="dropdown-item navbar-btn" href="#" url="../layout/map_input.php"
                                 target_div="display">เพิ่มข้อมูลอุบัติเหตุ</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li>
@@ -44,17 +44,7 @@ include "../include/connection.php";
 
 <script>
 $(function() {
-    <?php
-if (isset($_SESSION['current_page'])) {
-    ?>
-    loadPage("<?php echo $_SESSION['current_page']['url']; ?>",
-        "<?php echo $_SESSION['current_page']['target_div']; ?>");
-    <?php
-} else {
-    ?>
-    loadPage("../dashboard/dashbord.php", "display");
-    <?php
-}?>
+    loadPage("../layout/dashboard.php", "display");
     $(document).on("click touchstart", ".navbar-btn", function(e) {
         e.preventDefault();
         setActiveSidebar($(this));
