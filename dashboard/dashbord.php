@@ -17,7 +17,7 @@
         <div class="card shadow">
             <div class="card-body p-5">
                 <div class="row">
-                    <div class="col-lg-9 col-12">
+                    <div class="col-lg col-12">
                         <h1 class="text-primary">Welcome to SB Admin Pro!</h1>
                         Browse our fully designed UI toolkit! Browse our prebuilt app pages, components, and utilites,
                         and be
@@ -25,7 +25,7 @@
                         to look at our full documentation!
 
                     </div>
-                    <div class="col-lg-3 col-12">
+                    <div class="col-lg-auto col-12">
                         <img src="../image/at-work.svg" width="200px" alt="" srcset="">
                     </div>
                 </div>
