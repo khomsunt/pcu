@@ -17,3 +17,8 @@ function getCurrentPage() {
         console.log(msg);
     });
 }
+
+function setActiveSidebar(this_btn) {
+    $(".sidebar-btn > a").removeClass("active");
+    $(this_btn).addClass("active");
+}

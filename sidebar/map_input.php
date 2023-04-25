@@ -1,6 +1,6 @@
 <div class="sidebar-btn list-group pt-3 p-1 list-group-flush" style="width:240px;">
-    <a href="#" class="list-group-item list-group-item-action" url="../dashboard/dashboard.php"
-        target_div="display">Dashboard</a>
+    <a href="#" class="list-group-item list-group-item-action" url="../layout/map_input.php"
+        target_div="display">ข้อมูลอุบัติเหตุ</a>
     <a href="#" class="list-group-item list-group-item-action" url="../dashboard/test.php" target_div="display">Test</a>
     <a href="#" class="list-group-item list-group-item-action" url="../dashboard/test.php"
         target_div="display">Dashboard1</a>
