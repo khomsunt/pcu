@@ -57,12 +57,9 @@
                                             checkbox</label><br>
                                         <input class="form-check-input" type="checkbox" value=""
                                             id="flexCheckIndeterminate2">
-                                        <label class="form-check-label" for="flexCheckIndeterminate">Indeterminate
-                                            checkbox</label><br>
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckIndeterminate3">
-                                        <label class="form-check-label" for="flexCheckIndeterminate">Indeterminate
-                                            checkbox</label><br>
+                                        <label class="form-check-label" for="flexCheckIndeterminate">Indeterminate checkbox</label><br>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate3">
+                                        <label class="form-check-label" for="flexCheckIndeterminate">Indeterminate checkbox</label><br>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -82,24 +79,17 @@
                                 </div>
                                 <div class="mb-3">
                                     <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-                                    <label class="btn btn-outline-primary"
-                                        for="btn-check-outlined">Singletoggle</label><br>
-                                    <input type="checkbox" class="btn-check" id="btn-check-2-outlined" checked
-                                        autocomplete="off">
-                                    <label class="btn btn-outline-secondary"
-                                        for="btn-check-2-outlined">Checked</label><br>
-                                    <input type="radio" class="btn-check" name="options-outlined" id="success-outlined"
-                                        autocomplete="off" checked>
-                                    <label class="btn btn-outline-success" for="success-outlined">Checked success
-                                        radio</label>
-                                    <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined"
-                                        autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btn-check-outlined">Singletoggle</label><br>
+                                    <input type="checkbox" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="btn-check-2-outlined">Checked</label><br>
+                                    <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                                    <label class="btn btn-outline-success" for="success-outlined">Checked success radio</label>
+                                    <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
                                     <label class="btn btn-outline-danger" for="danger-outlined">Danger radio</label>
                                 </div>
                                 <div class="mb-3">
                                     <label for="customRange3" class="form-label">Example range</label>
-                                    <input type="range" class="form-range" min="0" max="5" step="0.25"
-                                        id="customRange3">
+                                    <input type="range" class="form-range" min="0" max="5" step="0.25" id="customRange3">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">$</span>
