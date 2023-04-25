@@ -130,7 +130,8 @@
     </div>
     <div class="col-12">
         <div class="row">
-            <div class="col-lg-3 col-12 p-2">
+            <div class="col-lg-3 col-12 p-2 dashboard-link" url="../table/table01.php" target_div="display"
+                role="button">
                 <div class="card shadow bg-primary text-white">
                     <div class="card-body">
                         <div class="row">
@@ -152,7 +153,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-12 p-2">
+            <div class="col-lg-3 col-12 p-2 dashboard-link" url="../table/table01.php" target_div="display"
+                role="button">
                 <div class="card shadow bg-success text-white">
                     <div class="card-body">
                         <div class="row">
@@ -174,7 +176,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-12 p-2">
+            <div class="col-lg-3 col-12 p-2 dashboard-link" url="../layout/map_input.php" target_div="display"
+                role="button">
                 <div class="card shadow bg-warning text-primary">
                     <div class="card-body">
                         <div class="row">
@@ -196,7 +199,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-12 p-2">
+            <div class="col-lg-3 col-12 p-2 dashboard-link" url="../dashboard/test.php" target_div="display"
+                role="button">
                 <div class="card shadow bg-danger text-warning">
                     <div class="card-body">
                         <div class="row">
@@ -267,6 +271,11 @@ $(function() {
     loadPage("../chart/chart01.php", "chart01");
     loadPage("../chart/chart02.php", "chart02");
     loadPage("../table/table01.php", "table01");
+
+
+    $(document).on("click", ".dashboard-link", function() {
+        loadPage($(this).attr("url"), $(this).attr("target_div"));
+    })
 
 })
 </script>

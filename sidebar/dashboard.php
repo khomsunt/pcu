@@ -19,9 +19,9 @@
 $(function() {
     $(document).on("click touchstart", ".sidebar-btn > a", function(e) {
         e.preventDefault();
-        setActiveSidebar($(this));
+        // setActiveSidebar($(this));
         loadPage($(this).attr("url"), $(this).attr("target_div"));
-        setCurrentPage($(this).attr("url"), $(this).attr("target_div"));
+        // setCurrentPage($(this).attr("url"), $(this).attr("target_div"));
     });
 })
 </script>
