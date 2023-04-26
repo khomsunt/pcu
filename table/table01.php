@@ -23,6 +23,7 @@
 <script>
 $(function() {
     $('#myTable01').DataTable({
+        retrieve: true,
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
