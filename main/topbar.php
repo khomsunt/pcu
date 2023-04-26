@@ -18,6 +18,21 @@ include "../include/connection.php";
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
+                        ถ่ายโอน
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item navbar-btn" href="#" url="../layout/dashboard01.php"
+                                target_div="display">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         อุบัติเหตุ
                     </a>
                     <ul class="dropdown-menu">
