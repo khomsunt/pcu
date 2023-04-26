@@ -23,23 +23,25 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
                                         data-bs-target="#home-tab-pane" type="button" role="tab"
-                                        aria-controls="home-tab-pane" aria-selected="true">Home</button>
+                                        aria-controls="home-tab-pane" aria-selected="true">กู้ภัย</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
                                         data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                        aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
+                                        aria-controls="profile-tab-pane"
+                                        aria-selected="false">ผู้ประสบอุบัติเหตุ</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
                                         data-bs-target="#contact-tab-pane" type="button" role="tab"
-                                        aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
+                                        aria-controls="contact-tab-pane"
+                                        aria-selected="false">รายระเอียดยานพาหนะ</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="disabled-tab" data-bs-toggle="tab"
                                         data-bs-target="#disabled-tab-pane" type="button" role="tab"
-                                        aria-controls="disabled-tab-pane" aria-selected="false"
-                                        disabled>Disabled</button>
+                                        aria-controls="disabled-tab-pane"
+                                        aria-selected="false">รายระเอียดจุดเกิดอุบัติเหตุ</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
@@ -76,7 +78,68 @@
                                 <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel"
                                     aria-labelledby="contact-tab" tabindex="0">...</div>
                                 <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel"
-                                    aria-labelledby="disabled-tab" tabindex="0">...</div>
+                                    aria-labelledby="disabled-tab" tabindex="0">
+                                    ประเภทถนน
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <option selected>เลือกประเภทถนน</option><br>
+                                        <option value="1">ทางหลวง</option>
+                                        <option value="2">ทางหลวงชนบท</option>
+                                        <option value="3">ทางเทศบาล</option>
+                                        <option value="4">ถนน อบต./หมู่บ้าน</option>
+                                        <option value="5">ไม่ทราบ</option>
+                                    </select><br>
+                                    ลักษณะเฉพาะของถนน
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <option selected>เลือกลักษณะเฉพาะของถนน</option><br>
+                                        <option value="1">ทางโค้ง</option>
+                                        <option value="2">ทางตรง</option>
+                                        <option value="3">ทางแยก</option>
+                                        <option value="4">สะพาน</option>
+                                        <option value="5">ชำรุด</option>
+                                        <option value="6">ระหว่างซ่อมแซม</option>
+                                        <option value="7">ไม่ทราบ</option>
+                                        <option value="8">ระบุไม่ได้</option>
+                                        <option value="9">อื่นๆ</option>
+                                        <option value="10">มีวัสดุพิเศษ</option>
+                                    </select><br>
+                                    ลักษะสำคัญของสภาพอากาศ
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <option selected>เลือกลักษณะของสภาพอากาศ</option><br>
+                                        <option value="1">หมอกลง</option>
+                                        <option value="2">หมอกลงจัด</option>
+                                        <option value="3">ฝนตก</option>
+                                        <option value="4">ฝนตกหนัก</option>
+                                        <option value="5">หมอกควัน</option>
+                                        <option value="6">น้ำท่วมขัง</option>
+                                        <option value="7">ไม่ทราบ</option>
+                                        <option value="8">ระบุไม่ได้</option>
+                                        <option value="9">อื่นๆ</option>
+                                    </select><br>
+                                    <div class="mb-3">
+                                        <label for="Textarea-ACC" class="form-label">รายระเอียดจุดเกิดอุบติเหตุ</label>
+                                        <textarea class="form-control" id="Textarea-ACC"rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Textarea-KM" class="form-label">กม. ที่(ถ้ามี)</label>
+                                        <textarea class="form-control" id="Textarea-KM"rows="1"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Textarea-G" class="form-label">หมู่</label>
+                                        <textarea class="form-control" id="Textarea-G"rows="1"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Textarea-district" class="form-label">ตำบล</label>
+                                        <textarea class="form-control" id="Textarea-district"rows="1"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Textarea-canton" class="form-label">อำเภอ</label>
+                                        <textarea class="form-control" id="Textarea-canton"rows="1"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Textarea-province" class="form-label">จังหวัด</label>
+                                        <textarea class="form-control" id="Textarea-province"rows="1"></textarea>
+                                    </div>
+                                </div>
                             </div>
 
 
