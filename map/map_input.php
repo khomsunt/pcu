@@ -60,23 +60,104 @@
                                         <textarea class="form-control" id="exampleFormControlTextarea1"
                                             rows="3"></textarea>
                                     </div>
-
-
-
                                 </div>
+                                <!-- รายระเอียดผู้ป่วย -->
                                 <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel"
                                     aria-labelledby="profile-tab" tabindex="0">
-
-                                    <input class="form-control form-control-lg" type="text"
-                                        placeholder=".form-control-lg" aria-label=".form-control-lg example">
-                                    <input class="form-control" type="text" placeholder="Default input"
-                                        aria-label="default input example">
-                                    <input class="form-control form-control-sm" type="text"
-                                        placeholder=".form-control-sm" aria-label=".form-control-sm example">
-
+                                    <select class="mb-1">
+                                        <option selected>เลือกชื่อขึ้นต้น</option><br>
+                                        <option value="1">นาย</option>
+                                        <option value="2">นางสาว</option>
+                                        <option value="3">นาง</option>
+                                        <option value="4">ด.ญ.</option>
+                                        <option value="5">ด.ช.</option>
+                                    </select>
+                                    <div>
+                                        <label for="fname">First name:</label>
+                                        <input type="text" id="fname" name="fname" value="---">
+                                        <label for="lname">Last name:</label>
+                                        <input type="text" id="lname" name="lname" value="---">
+                                    </div>
                                 </div>
+
+                                <!-- รายระเอียดรถของผู้ประสบเหตุ -->
+
                                 <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel"
-                                    aria-labelledby="contact-tab" tabindex="0">...</div>
+                                    aria-labelledby="contact-tab" tabindex="0">
+                                    รถของผู้ประสบอุบัติเหตุ
+                                    <select class="mb-3 form-select form-select-sm"
+                                        aria-label=".form-select-sm example">
+                                        <option selected>เลือกประเภทรถ</option><br>
+                                        <option value="1">เดินเท้า</option>
+                                        <option value="2">จักรยาน</option>
+                                        <option value="3">จักรยานยนต์</option>
+                                        <option value="4">รถกระบะ(บิกอัพ)</option>
+                                        <option value="5">รถเก๋ง</option>
+                                        <option value="6">สามล้อเคลื่อน</option>
+                                        <option value="7">รถซาเล้ง</option>
+                                        <option value="8">รถแท็กซี่</option>
+                                        <option value="9">รถตู้ทั่วไป</option>
+                                        <option value="10">รถสองแถว</option>
+                                        <option value="11">รถโดยสาร 6 ล้อ</option>
+                                        <option value="12">รถบรรทุก 6 ล้อ</option>
+                                        <option value="13">รถไถนา</option>
+                                        <option value="14">รถดัดแปลง</option>
+                                        <option value="15">สัตว์ตัดหน้า</option>
+                                        <option value="16">ไม่มี</option>
+                                    </select><br>
+                                    รถของคุ่กรณี
+                                    <select class="mb-3 form-select form-select-sm"
+                                        aria-label=".form-select-sm example">
+                                        <option selected>เลือกประเภทรถ</option><br>
+                                        <option value="1">เดินเท้า</option>
+                                        <option value="2">จักรยาน</option>
+                                        <option value="3">จักรยานยนต์</option>
+                                        <option value="4">รถกระบะ(บิกอัพ)</option>
+                                        <option value="5">รถเก๋ง</option>
+                                        <option value="6">สามล้อเคลื่อน</option>
+                                        <option value="7">รถซาเล้ง</option>
+                                        <option value="8">รถแท็กซี่</option>
+                                        <option value="9">รถตู้ทั่วไป</option>
+                                        <option value="10">รถสองแถว</option>
+                                        <option value="11">รถโดยสาร 6 ล้อ</option>
+                                        <option value="12">รถบรรทุก 6 ล้อ</option>
+                                        <option value="13">รถไถนา</option>
+                                        <option value="14">รถดัดแปลง</option>
+                                        <option value="15">สัตว์ตัดหน้า</option>
+                                        <option value="16">ไม่มี</option>
+                                    </select><br>
+                                    สาเหตุของอาการบาดเจ็บ
+                                    <select class="mb-3 form-select form-select-sm"
+                                        aria-label=".form-select-sm example">
+                                        <option selected>เลือกสาเหตุ</option><br>
+                                        <option value="1">ถูกชน</option>
+                                        <option value="2">ชนกับสัตว์</option>
+                                        <option value="3">ชนสะพาน</option>
+                                        <option value="4">ชนกับเสาไฟฟ้า</option>
+                                        <option value="5">ชนกับป้ายจราจร</option>
+                                        <option value="6">ชนกับสิ่งอื่น</option>
+                                        <option value="7">ตกจากพาหนะ</option>
+                                        <option value="8">พาหนะคว่ำ</option>
+                                        <option value="9">พาหนะล้ม</option>
+                                        <option value="10">พาหนะจมน้ำ</option>
+                                        <option value="11">อื่นๆ</option>
+                                        <option value="12">ไม่ทราบ</option>
+                                    </select><br>
+                                    รถของคุ่กรณี
+                                    <select class="mb-3 form-select form-select-sm"
+                                        aria-label=".form-select-sm example">
+                                        <option selected>เลือกการป้องกัน</option><br>
+                                        <option value="1">สวมหมวกนิรภัย</option>
+                                        <option value="2">ไม่สวมหมวกนิรภัย</option>
+                                        <option value="3">คาดเข็มขัดนิรภัย</option>
+                                        <option value="4">ไม่คาดเข็มขัดนิรภัย</option>
+                                        <option value="5">ไม่ทราบ</option>
+                                        <option value="6">ไม่ต้องใช้</option>
+                                    </select><br>
+                                </div>
+
+                                <!-- รายระเอียดจุดเกิดอุบัติเหตุ -->
+
                                 <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel"
                                     aria-labelledby="disabled-tab" tabindex="0">
                                     ประเภทถนน
@@ -117,34 +198,30 @@
                                     </select><br>
                                     <div class="mb-3">
                                         <label for="Textarea-ACC" class="form-label">รายระเอียดจุดเกิดอุบติเหตุ</label>
-                                        <textarea class="form-control" id="Textarea-ACC"rows="3"></textarea>
+                                        <textarea class="form-control" id="Textarea-ACC" rows="3"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="Textarea-KM" class="form-label">กม. ที่(ถ้ามี)</label>
-                                        <textarea class="form-control" id="Textarea-KM"rows="1"></textarea>
+                                        <textarea class="form-control" id="Textarea-KM" rows="1"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="Textarea-G" class="form-label">หมู่</label>
-                                        <textarea class="form-control" id="Textarea-G"rows="1"></textarea>
+                                        <textarea class="form-control" id="Textarea-G" rows="1"></textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="Textarea-district" class="form-label">ตำบล</label>
-                                        <textarea class="form-control" id="Textarea-district"rows="1"></textarea>
+                                        <label for="Textarea-G" class="form-label">ตำบล</label>
+                                        <textarea class="form-control" id="Textarea-G" rows="1"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="Textarea-canton" class="form-label">อำเภอ</label>
-                                        <textarea class="form-control" id="Textarea-canton"rows="1"></textarea>
+                                        <textarea class="form-control" id="Textarea-canton" rows="1"></textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="Textarea-province" class="form-label">จังหวัด</label>
-                                        <textarea class="form-control" id="Textarea-province"rows="1"></textarea>
+                                        <label for="Textarea-KM" class="form-label">จังหวัด</label>
+                                        <textarea class="form-control" id="Textarea-ACC" rows="1"></textarea>
                                     </div>
                                 </div>
                             </div>
-
-
-
-
                         </div>
                     </div>
                 </form>
