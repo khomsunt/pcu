@@ -65,7 +65,7 @@
                                 <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel"
                                     aria-labelledby="profile-tab" tabindex="0">
                                     <select class="mb-1">
-                                        <option selected>เลือกชื่อขึ้นต้น</option><br>
+                                        <option selected>เลือกชื่อขึ้นต้น</option>
                                         <option value="1">นาย</option>
                                         <option value="2">นางสาว</option>
                                         <option value="3">นาง</option>
@@ -76,8 +76,12 @@
                                         <label for="fname">First name:</label>
                                         <input type="text" id="fname" name="fname" value="---">
                                         <label for="lname">Last name:</label>
-                                        <input type="text" id="lname" name="lname" value="---">
-                                    </div>
+                                        <input type="text" id="lname" name="lname" value="---"><br>
+                                        <label for="sex">เพศ :</label>
+                                        <input type="text" id="sex" name="sex" value="---">
+                                        <label for="age">อายุ :</label>
+                                        <input type="text" id="age" name="age" value="---">
+                                    </div><br>
                                 </div>
 
                                 <!-- รายระเอียดรถของผู้ประสบเหตุ -->
@@ -90,20 +94,21 @@
                                         <option selected>เลือกประเภทรถ</option><br>
                                         <option value="1">เดินเท้า</option>
                                         <option value="2">จักรยาน</option>
-                                        <option value="3">จักรยานยนต์</option>
-                                        <option value="4">รถกระบะ(บิกอัพ)</option>
-                                        <option value="5">รถเก๋ง</option>
-                                        <option value="6">สามล้อเคลื่อน</option>
-                                        <option value="7">รถซาเล้ง</option>
-                                        <option value="8">รถแท็กซี่</option>
-                                        <option value="9">รถตู้ทั่วไป</option>
-                                        <option value="10">รถสองแถว</option>
-                                        <option value="11">รถโดยสาร 6 ล้อ</option>
-                                        <option value="12">รถบรรทุก 6 ล้อ</option>
-                                        <option value="13">รถไถนา</option>
-                                        <option value="14">รถดัดแปลง</option>
-                                        <option value="15">สัตว์ตัดหน้า</option>
-                                        <option value="16">ไม่มี</option>
+                                        <option value="3">จักรยานไฟฟ้า</option>
+                                        <option value="4">จักรยานยนต์</option>
+                                        <option value="5">รถกระบะ(บิกอัพ)</option>
+                                        <option value="6">รถเก๋ง</option>
+                                        <option value="7">สามล้อเคลื่อน</option>
+                                        <option value="8">รถซาเล้ง</option>
+                                        <option value="9">รถแท็กซี่</option>
+                                        <option value="10">รถตู้ทั่วไป</option>
+                                        <option value="11">รถสองแถว</option>
+                                        <option value="12">รถโดยสาร 6 ล้อ</option>
+                                        <option value="13">รถบรรทุก 6 ล้อ</option>
+                                        <option value="14">รถไถนา</option>
+                                        <option value="15">รถดัดแปลง</option>
+                                        <option value="16">สัตว์ตัดหน้า</option>
+                                        <option value="17">ไม่มี</option>
                                     </select><br>
                                     รถของคุ่กรณี
                                     <select class="mb-3 form-select form-select-sm"
@@ -111,20 +116,21 @@
                                         <option selected>เลือกประเภทรถ</option><br>
                                         <option value="1">เดินเท้า</option>
                                         <option value="2">จักรยาน</option>
-                                        <option value="3">จักรยานยนต์</option>
-                                        <option value="4">รถกระบะ(บิกอัพ)</option>
-                                        <option value="5">รถเก๋ง</option>
-                                        <option value="6">สามล้อเคลื่อน</option>
-                                        <option value="7">รถซาเล้ง</option>
-                                        <option value="8">รถแท็กซี่</option>
-                                        <option value="9">รถตู้ทั่วไป</option>
-                                        <option value="10">รถสองแถว</option>
-                                        <option value="11">รถโดยสาร 6 ล้อ</option>
-                                        <option value="12">รถบรรทุก 6 ล้อ</option>
-                                        <option value="13">รถไถนา</option>
-                                        <option value="14">รถดัดแปลง</option>
-                                        <option value="15">สัตว์ตัดหน้า</option>
-                                        <option value="16">ไม่มี</option>
+                                        <option value="3">จักรยานไฟฟ้า</option>
+                                        <option value="4">จักรยานยนต์</option>
+                                        <option value="5">รถกระบะ(บิกอัพ)</option>
+                                        <option value="6">รถเก๋ง</option>
+                                        <option value="7">สามล้อเคลื่อน</option>
+                                        <option value="8">รถซาเล้ง</option>
+                                        <option value="9">รถแท็กซี่</option>
+                                        <option value="10">รถตู้ทั่วไป</option>
+                                        <option value="11">รถสองแถว</option>
+                                        <option value="12">รถโดยสาร 6 ล้อ</option>
+                                        <option value="13">รถบรรทุก 6 ล้อ</option>
+                                        <option value="14">รถไถนา</option>
+                                        <option value="15">รถดัดแปลง</option>
+                                        <option value="16">สัตว์ตัดหน้า</option>
+                                        <option value="17">ไม่มี</option>
                                     </select><br>
                                     สาเหตุของอาการบาดเจ็บ
                                     <select class="mb-3 form-select form-select-sm"
