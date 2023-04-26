@@ -1,5 +1,7 @@
 <?php
 include "../include/connection.php";
+include "../include/functioin.php";
+
 ?>
 <nav id="mainTopbar" class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
@@ -49,7 +51,7 @@ include "../include/connection.php";
                     <a class="nav-link disabled">Disabled</a>
                 </li>
             </ul>
-            <span class="navbar-text">
+            <span class="navbar-text" style="padding-top:0px; padding-bottom:0px;">
                 <div class="row">
                     <div class="col-lg-8 col-12">
                         <form class="d-flex" role="search">
@@ -60,21 +62,38 @@ include "../include/connection.php";
                     </div>
                     <div class="col-lg-4 col-12">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <?php
+if (isset($_SESSION['ses_login_userData_val_pcu'])) {
+    ?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    ผู้ใช้งาน
+                                    <i class="bi bi-person-fill"></i> ผู้ใช้งาน
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item navbar-btn" href="#" url="../user/profile.php"
+                                            target_div="display"><i class="bi bi-person-vcard-fill"></i>
+                                            ข้อมูลส่วนตัว</a></li>
                                     <li><a class="dropdown-item navbar-btn" href="#" url="../layout/dashboard01.php"
-                                            target_div="display">Dashboard</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            target_div="display"><i class="bi bi-person-check-fill"></i>
+                                            แก้ไขข้อมูลส่วนตัว</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a class="dropdown-item" href="../line/logout.php"><i
+                                                class="bi bi-unlock-fill"></i> Logout</a></li>
                                 </ul>
                             </li>
+                            <?php
+} else {
+    ?>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="https://c77f-61-19-108-218.ngrok-free.app/pcu/line/login.php"><i
+                                        class="bi bi-key-fill"></i> Login</a>
+                            </li>
+                            <?php
+}?>
                         </ul>
 
                     </div>

@@ -5,4 +5,5 @@ return array(
     'username' => 'root',
     'password' => '123456',
     'port' => '3306',
+    'projectname' => 'pcu',
 );
