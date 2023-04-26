@@ -43,7 +43,7 @@ $v = date("YmdHis");
 
     <script>
     $(function() {
-        loadPage("../template/default.php", "root");
+        loadPage("", "../template/default.php", "root");
     })
     </script>
 </body>

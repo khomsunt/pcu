@@ -5,7 +5,8 @@ include "../include/functioin.php";
 ?>
 <nav id="mainTopbar" class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand navbar-btn" href="#" url="../layout/dashboard.php" target_div="display">
+        <a class="navbar-brand navbar-btn" href="#" layout="../layout/dashboard.php" page="../dashboard/dashboard.php"
+            target_div="display">
             <i class="bi bi-ubuntu"></i>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -23,8 +24,8 @@ include "../include/functioin.php";
                         ถ่ายโอน
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item navbar-btn" href="#" url="../layout/dashboard01.php"
-                                target_div="display">Dashboard</a></li>
+                        <li><a class="dropdown-item navbar-btn" href="#" layout="../layout/dashboard01.php"
+                                page="../dashboard/dashboard01.php" target_div="display">Dashboard</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li>
                             <hr class="dropdown-divider">
@@ -38,8 +39,8 @@ include "../include/functioin.php";
                         อุบัติเหตุ
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item navbar-btn" href="#" url="../layout/map_input.php"
-                                target_div="display">เพิ่มข้อมูลอุบัติเหตุ</a></li>
+                        <li><a class="dropdown-item navbar-btn" href="#" layout="../layout/map_input.php"
+                                page="../map/map_input.php" target_div="display">เพิ่มข้อมูลอุบัติเหตุ</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li>
                             <hr class="dropdown-divider">
@@ -71,11 +72,13 @@ if (isset($_SESSION['ses_login_userData_val_pcu'])) {
                                     <i class="bi bi-person-fill"></i> ผู้ใช้งาน
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item navbar-btn" href="#" url="../user/profile.php"
-                                            target_div="display"><i class="bi bi-person-vcard-fill"></i>
+                                    <li><a class="dropdown-item navbar-btn" href="#" layout="../layout/user.php"
+                                            page="../user/profile.php" target_div="display"><i
+                                                class="bi bi-person-vcard-fill"></i>
                                             ข้อมูลส่วนตัว</a></li>
-                                    <li><a class="dropdown-item navbar-btn" href="#" url="../layout/dashboard01.php"
-                                            target_div="display"><i class="bi bi-person-check-fill"></i>
+                                    <li><a class="dropdown-item navbar-btn" href="#" layout="../layout/dashboard01.php"
+                                            page="../dashboard/dashboard01.php" target_div="display"><i
+                                                class="bi bi-person-check-fill"></i>
                                             แก้ไขข้อมูลส่วนตัว</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -106,12 +109,12 @@ if (isset($_SESSION['ses_login_userData_val_pcu'])) {
 
 <script>
 $(function() {
-    loadPage("../layout/dashboard.php", "display");
+    loadPage("", "../layout/dashboard.php", "display");
     $(document).on("click touchstart", ".navbar-btn", function(e) {
         e.preventDefault();
         setActiveSidebar($(this));
-        loadPage($(this).attr("url"), $(this).attr("target_div"));
-        setCurrentPage($(this).attr("url"), $(this).attr("target_div"));
+        loadPage($(this).attr("layout"), $(this).attr("page"), $(this).attr("target_div"));
+        setCurrentPage($(this).attr("layout"), $(this).attr("page"), $(this).attr("target_div"));
     });
 })
 </script>

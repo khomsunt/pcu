@@ -86,15 +86,9 @@
 
 <script>
 $(function() {
-    loadPage("../chart/chart01-0.php", "chart01-0");
-    loadPage("../chart/chart01-1.php", "chart01-1");
-    loadPage("../chart/chart01-2.php", "chart01-2");
-    loadPage("../chart/chart01-3.php", "chart01-3");
-
-
-    $(document).on("click", ".dashboard-link", function() {
-        loadPage($(this).attr("url"), $(this).attr("target_div"));
-    })
-
+    loadPage("", "../chart/chart01-0.php", "chart01-0");
+    loadPage("", "../chart/chart01-1.php", "chart01-1");
+    loadPage("", "../chart/chart01-2.php", "chart01-2");
+    loadPage("", "../chart/chart01-3.php", "chart01-3");
 })
 </script>

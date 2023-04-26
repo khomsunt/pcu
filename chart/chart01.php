@@ -2,8 +2,6 @@
 include "../include/connection.php";
 include "../include/function.php";
 
-print_r($_SESSION);
-
 $sql = "select * from chart01 where status_id=:status_id order by chart_id";
 $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
 $stmt->execute(['status_id' => 1]);

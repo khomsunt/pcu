@@ -16,7 +16,7 @@
 
 <script>
 $(function() {
-    loadPage("../main/topbar.php", "topbar");
+    loadPage("", "../main/topbar.php", "topbar");
     // loadPage("../main/sidebar.php", "sidebar");
 })
 </script>

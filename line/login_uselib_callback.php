@@ -14,4 +14,4 @@ if (!is_null($dataToken) && is_array($dataToken)) {
         $_SESSION['ses_login_userData_val_' . $config['projectname']] = $dataToken['user'];
     }
 }
-$LineLogin->redirect('../main/index.php');
+$LineLogin->redirect('../main/');
