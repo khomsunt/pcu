@@ -55,8 +55,7 @@
                                             id="flexCheckIndeterminate1">
                                         <label class="form-check-label" for="flexCheckIndeterminate">Indeterminate
                                             checkbox</label><br>
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckIndeterminate2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate2">
                                         <label class="form-check-label" for="flexCheckIndeterminate">Indeterminate checkbox</label><br>
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate3">
                                         <label class="form-check-label" for="flexCheckIndeterminate">Indeterminate checkbox</label><br>
