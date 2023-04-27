@@ -18,6 +18,14 @@ function loadPage(layout, page, target, params = {}) {
     }
 }
 
+function loadPopup(url, params = {}) {
+    $("#popup-main").modal("show");
+    $("#popup-main .modal-content").html('<div class="d-flex justify-content-center p-1"><div class="spinner-border text-primary" role=" status "></div></div>');
+    $.ajax({method: "POST", url: url, data: params}).done(function (msg) {
+        $("#popup-main .modal-content").html(msg);
+    });
+}
+
 function setCurrentPage(layout, page, target, params = {}) {
     params.target_div = target;
     params.layout = layout;
