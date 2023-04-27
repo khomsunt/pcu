@@ -104,9 +104,7 @@ if ($_SESSION['user_id_' . $config['projectname']] > 0) {
 } else {
     ?>
                             <li class="nav-item">
-                                <a class="nav-link"
-                                    href="https://c77f-61-19-108-218.ngrok-free.app/pcu/line/login.php"><i
-                                        class="bi bi-key-fill"></i> Login</a>
+                                <a class="nav-link" href="../line/login.php"><i class="bi bi-key-fill"></i> Login</a>
                             </li>
                             <?php
 }?>
