@@ -175,7 +175,7 @@ include "../include/function.php";
                                         <label for="road_id" class="form-label">เลือกถนน</label>
                                         <select id="road_id" name="road_id" class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
-                                            <option selected>เลือกถนน</option><br>
+                                            <option selected>เลือกถนน</option>
                                             <?php
 $sql = "select * from road where status_id=:status_id order by road_id";
 $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
@@ -195,7 +195,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                         <!-- บรรทัดนี้ทำให้เมื่อนำเมาส์ไปชี้ที่คำว่า "ลักษะสำคัญของสภาพอากาศ" จะขึ้นแสงที่ช่อง seclect-->
                                         <select id="climate_id" name="climate_id" class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
-                                            <option selected>เลือกลักษณะของสภาพอากาศ</option><br>
+                                            <option selected>เลือกลักษณะของสภาพอากาศ</option>
                                             <?php
 $sql = "select * from climate where status_id=:status_id order by climate_id";
 // บรรทัดบนเป็นตัวเลือกคอลั่มในฐานะข้อมูล
