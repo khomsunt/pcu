@@ -7,7 +7,7 @@ include "../include/function.php";
     <h1>My First Google Map</h1>
 </div>
 
-<div id="googleMap" style="width:100%;"></div>
+<div id="googleMap" style="width:100%;">dddd</div>
 
 <div class="modal fade" id="modal-map" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-hidden="true" style="display: none;">
@@ -177,19 +177,19 @@ include "../include/function.php";
                                             aria-label=".form-select-sm example">
                                             <option selected>เลือกถนน</option><br>
                                             <?php
-                                            $sql = "select * from road where status_id=:status_id order by road_id";
-                                            $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-                                            $stmt->execute(['status_id' => 1]);
-                                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                                ?>
+$sql = "select * from road where status_id=:status_id order by road_id";
+$stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+$stmt->execute(['status_id' => 1]);
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    ?>
                                             <option value="<?php echo $row['road_id']; ?>">
                                                 <?php echo $row['road_name']; ?></option>
                                             <?php
-                                                }?>
+}?>
                                         </select>
                                     </div>
 
-                                    
+
                                     <div class="mb-3">
                                         <label for="climate_id" class="form-label">ลักษณะสำคัญของสภาพอากาศ</label>
                                         <!-- บรรทัดนี้ทำให้เมื่อนำเมาส์ไปชี้ที่คำว่า "ลักษะสำคัญของสภาพอากาศ" จะขึ้นแสงที่ช่อง seclect-->
@@ -197,19 +197,19 @@ include "../include/function.php";
                                             aria-label=".form-select-sm example">
                                             <option selected>เลือกลักษณะของสภาพอากาศ</option><br>
                                             <?php
-                                            $sql = "select * from climate where status_id=:status_id order by climate_id";
-                                            // บรรทัดบนเป็นตัวเลือกคอลั่มในฐานะข้อมูล
-                                            $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-                                            $stmt->execute(['status_id' => 1]);
-                                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                                // บรรทัดบนถ้าไม่ใส่ while มันจะแสดงแค่อันเดียว  ต้องวนซ้ำใส่สำหรับอันที่มีหลายตัวเลือก
-                                                ?>
+$sql = "select * from climate where status_id=:status_id order by climate_id";
+// บรรทัดบนเป็นตัวเลือกคอลั่มในฐานะข้อมูล
+$stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+$stmt->execute(['status_id' => 1]);
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    // บรรทัดบนถ้าไม่ใส่ while มันจะแสดงแค่อันเดียว  ต้องวนซ้ำใส่สำหรับอันที่มีหลายตัวเลือก
+    ?>
                                             <option value="<?php echo $row['climate_id']; ?>">
                                                 <?php echo $row['climate_name']; ?></option>
                                             <!-- สองบรรทัดด้านบนเป็นตัวเรียก id กับ name จาก MySQL -->
                                             <?php
-                                                //ใส่ <?php เพื่อปิดฟังก์ชั่นการวนลูป
-                                                }?>
+//ใส่ <?php เพื่อปิดฟังก์ชั่นการวนลูป
+}?>
                                         </select>
                                     </div>
                                     <div class="mb-3">
