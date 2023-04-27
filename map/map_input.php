@@ -171,44 +171,44 @@ include "../include/function.php";
 
                                 <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel"
                                     aria-labelledby="disabled-tab" tabindex="0">
-                                    ประเภทถนน
-                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <option selected>เลือกประเภทถนน</option><br>
-                                        <option value="1">ทางหลวง</option>
-                                        <option value="2">ทางหลวงชนบท</option>
-                                        <option value="3">ทางเทศบาล</option>
-                                        <option value="4">ถนน อบต./หมู่บ้าน</option>
-                                        <option value="5">ไม่ทราบ</option>
-                                    </select><br>
-                                    ลักษณะเฉพาะของถนน
-                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <option selected>เลือกลักษณะเฉพาะของถนน</option><br>
-                                        <option value="1">ทางโค้ง</option>
-                                        <option value="2">ทางตรง</option>
-                                        <option value="3">ทางแยก</option>
-                                        <option value="4">สะพาน</option>
-                                        <option value="5">ชำรุด</option>
-                                        <option value="6">ระหว่างซ่อมแซม</option>
-                                        <option value="7">ไม่ทราบ</option>
-                                        <option value="8">ระบุไม่ได้</option>
-                                        <option value="9">อื่นๆ</option>
-                                        <option value="10">มีวัสดุพิเศษ</option>
-                                    </select><br>
                                     <div class="mb-3">
-                                        <label for="climate_id" class="form-label">ลักษะสำคัญของสภาพอากาศ</label>
+                                        <label for="road_id" class="form-label">เลือกถนน</label>
+                                        <select id="road_id" name="road_id" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                            <option selected>เลือกถนน</option><br>
+                                            <?php
+                                            $sql = "select * from road where status_id=:status_id order by road_id";
+                                            $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                                            $stmt->execute(['status_id' => 1]);
+                                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                                ?>
+                                            <option value="<?php echo $row['road_id']; ?>">
+                                                <?php echo $row['road_name']; ?></option>
+                                            <?php
+                                                }?>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="climate_id" class="form-label">ลักษณะสำคัญของสภาพอากาศ</label>
+                                        <!-- บรรทัดนี้ทำให้เมื่อนำเมาส์ไปชี้ที่คำว่า "ลักษะสำคัญของสภาพอากาศ" จะขึ้นแสงที่ช่อง seclect-->
                                         <select id="climate_id" name="climate_id" class="form-select form-select-sm"
                                             aria-label=".form-select-sm example">
                                             <option selected>เลือกลักษณะของสภาพอากาศ</option><br>
                                             <?php
-$sql = "select * from climate where status_id=:status_id order by climate_id";
-$stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-$stmt->execute(['status_id' => 1]);
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    ?>
+                                            $sql = "select * from climate where status_id=:status_id order by climate_id";
+                                            // บรรทัดบนเป็นตัวเลือกคอลั่มในฐานะข้อมูล
+                                            $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                                            $stmt->execute(['status_id' => 1]);
+                                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                                // บรรทัดบนถ้าไม่ใส่ while มันจะแสดงแค่อันเดียว  ต้องวนซ้ำใส่สำหรับอันที่มีหลายตัวเลือก
+                                                ?>
                                             <option value="<?php echo $row['climate_id']; ?>">
                                                 <?php echo $row['climate_name']; ?></option>
+                                            <!-- สองบรรทัดด้านบนเป็นตัวเรียก id กับ name จาก MySQL -->
                                             <?php
-}?>
+                                                //ใส่ <?php เพื่อปิดฟังก์ชั่นการวนลูป
+                                                }?>
                                         </select>
                                     </div>
                                     <div class="mb-3">
