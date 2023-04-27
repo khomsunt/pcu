@@ -1,3 +1,3 @@
 <?php
 include "../include/connection.php";
-print_r($_SESSION);
+echo json_encode($_SESSION['current_page']);

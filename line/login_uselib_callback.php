@@ -22,10 +22,16 @@ if (!is_null($dataToken) && is_array($dataToken)) {
         $stmt->execute(['line_id' => $_SESSION['line_login_userData_' . $config['projectname']]['userId']]);
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $a_displayName = explode(" ", $_SESSION['line_login_userData_' . $config['projectname']]['displayName']);
         if ($user['user_id'] > 0) {
+            $sql = "update user set picture=:picture where user_id=:user_id";
+            $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+            $stmt->execute([
+                'picture' => $_SESSION['line_login_userData_' . $config['projectname']]['pictureUrl'],
+                'user_id' => $user['user_id'],
+            ]);
             $_SESSION['user_id_' . $config['projectname']] = $user['user_id'];
         } else {
-            $a_displayName = explode(" ", $_SESSION['line_login_userData_' . $config['projectname']]['displayName']);
             $sql = "insert into user (line_id,user_first_name,user_last_name,picture) value (:line_id,:displayName_first_name,:displayName_last_name,:picture)";
             $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
             $stmt->execute([

@@ -1,7 +1,7 @@
 <div class="container p-0">
     <div class="row" style="margin:0; padding:0;">
         <div id="topbar" class="col-12 shadow"></div>
-        <div class="container col-12">
+        <div class="container col-12 p-0">
             <div class="row" style="margin:0; padding:0;">
                 <div id="sidebar"
                     class="col-auto pt-5 px-0 collapse show collapse-horizontal overflow-auto d-none d-lg-block"

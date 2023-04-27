@@ -130,8 +130,8 @@
     </div>
     <div class="col-12">
         <div class="row">
-            <div class="col-lg-3 col-12 p-2 navbar-btn" layout="" page="../table/table01.php" target_div="display"
-                role="button">
+            <div class="col-lg-3 col-12 p-2 navbar-btn" show_type="page" layout="" page="../table/table01.php"
+                target_div="display" role="button">
                 <div class="card shadow bg-primary text-white">
                     <div class="card-body">
                         <div class="row">
@@ -153,8 +153,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-12 p-2 navbar-btn" layout="" page="../table/table01.php" target_div="display"
-                role="button">
+            <div class="col-lg-3 col-12 p-2 navbar-btn" show_type="page" layout="" page="../table/table01.php"
+                target_div="display" role="button">
                 <div class="card shadow bg-success text-white">
                     <div class="card-body">
                         <div class="row">
@@ -176,8 +176,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-12 p-2 navbar-btn" layout="../layout/map_input.php" page="../map/map_input.php"
-                target_div="display" role="button">
+            <div class="col-lg-3 col-12 p-2 navbar-btn" show_type="page" layout="../layout/map_input.php"
+                page="../map/map_input.php" target_div="display" role="button">
                 <div class="card shadow bg-warning text-primary">
                     <div class="card-body">
                         <div class="row">
@@ -199,8 +199,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-12 p-2 navbar-btn" layout="" page="../dashboard/test.php" target_div="display"
-                role="button">
+            <div class="col-lg-3 col-12 p-2 navbar-btn" show_type="page" layout="" page="../dashboard/test.php"
+                target_div="display" role="button">
                 <div class="card shadow bg-danger text-warning">
                     <div class="card-body">
                         <div class="row">

@@ -1,20 +1,20 @@
 <div class="list-group pt-3 p-1 list-group-flush" style="width:240px;">
-    <a href="#" class="list-group-item list-group-item-action navbar-btn" layout="" page="../dashboard/dashboard01.php"
-        target_div="display">Dashboard</a>
-    <a href="#" class="list-group-item list-group-item-action navbar-btn" layout="" page="../dashboard/test.php"
-        target_div="display">Test</a>
-    <a href="#" class="list-group-item list-group-item-action navbar-btn" layout="" page="../dashboard/test.php"
-        target_div="display">Dashboard1</a>
-    <a href="#" class="list-group-item list-group-item-action navbar-btn" layout="" page="../dashboard/test.php"
-        target_div="display">Dashboard2</a>
-    <a href="#" class="list-group-item list-group-item-action navbar-btn" layout="" page="../dashboard/test.php"
-        target_div="display">Dashboard3</a>
-    <a href="#" class="list-group-item list-group-item-action navbar-btn" layout="" page="../dashboard/test.php"
-        target_div="display">Dashboard4</a>
-    <a href="#" class="list-group-item list-group-item-action navbar-btn" layout="" page="../dashboard/test.php"
-        target_div="display">Dashboard5</a>
-    <a href="#" class="list-group-item list-group-item-action navbar-btn" layout="" page="../dashboard/test.php"
-        target_div="display">Dashboard6</a>
+    <a href="#" class="list-group-item list-group-item-action navbar-btn" show_type="page" layout=""
+        page="../dashboard/dashboard01.php" target_div="display">Dashboard</a>
+    <a href="#" class="list-group-item list-group-item-action navbar-btn" show_type="page" layout=""
+        page="../dashboard/test.php" target_div="display">Test</a>
+    <a href="#" class="list-group-item list-group-item-action navbar-btn" show_type="page" layout=""
+        page="../dashboard/test.php" target_div="display">Dashboard1</a>
+    <a href="#" class="list-group-item list-group-item-action navbar-btn" show_type="page" layout=""
+        page="../dashboard/test.php" target_div="display">Dashboard2</a>
+    <a href="#" class="list-group-item list-group-item-action navbar-btn" show_type="page" layout=""
+        page="../dashboard/test.php" target_div="display">Dashboard3</a>
+    <a href="#" class="list-group-item list-group-item-action navbar-btn" show_type="page" layout=""
+        page="../dashboard/test.php" target_div="display">Dashboard4</a>
+    <a href="#" class="list-group-item list-group-item-action navbar-btn" show_type="page" layout=""
+        page="../dashboard/test.php" target_div="display">Dashboard5</a>
+    <a href="#" class="list-group-item list-group-item-action navbar-btn" show_type="page" layout=""
+        page="../dashboard/test.php" target_div="display">Dashboard6</a>
 </div>
 <script>
 $(function() {

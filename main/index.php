@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 $v = date("YmdHis");
+include "../user/get_profile_data.php";
 ?>
 
 <head>
@@ -30,6 +31,27 @@ $v = date("YmdHis");
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgrspFTB0_6fco5mPwD416MkStMgCXubE">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="../js/function.js?v=<?php echo $v; ?>"></script>
+
+    <script>
+    <?php
+if (isset($_SESSION['current_page'])) {
+    ?>
+    var current_page = <?php echo json_encode($_SESSION['current_page']); ?>;
+    <?php
+} else {
+    ?>
+    var current_page = [];
+    current_page['layout'] = "";
+    current_page['page'] = "";
+    current_page['target_div'] = "";
+    <?php
+}?>
+    var user_profile = <?php echo json_encode($user_profile); ?>;
+    var user_profile_fullscreen_obj = _.find(user_profile, 'user_profile_key', 'fullscreen');
+    var user_profile_fullscreen = (user_profile_fullscreen_obj) ? user_profile_fullscreen_obj.user_profile_value : "0";
+    </script>
 
 
 </head>
@@ -48,7 +70,6 @@ $v = date("YmdHis");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
-    <script src="../js/function.js?v=<?php echo $v; ?>"></script>
 
     <script>
     $(function() {

@@ -5,8 +5,8 @@ include "../include/function.php";
 ?>
 <nav id="mainTopbar" class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand navbar-btn" href="#" layout="../layout/dashboard.php" page="../dashboard/dashboard.php"
-            target_div="display">
+        <a class="navbar-brand navbar-btn" href="#" show_type="page" layout="../layout/dashboard.php"
+            page="../dashboard/dashboard.php" target_div="display">
             <i class="bi bi-ubuntu"></i>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -24,8 +24,9 @@ include "../include/function.php";
                         ถ่ายโอน
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item navbar-btn" href="#" layout="../layout/dashboard01.php"
-                                page="../dashboard/dashboard01.php" target_div="display">Dashboard</a></li>
+                        <li><a class="dropdown-item navbar-btn" href="#" show_type="page"
+                                layout="../layout/dashboard01.php" page="../dashboard/dashboard01.php"
+                                target_div="display">Dashboard</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li>
                             <hr class="dropdown-divider">
@@ -39,8 +40,9 @@ include "../include/function.php";
                         อุบัติเหตุ
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item navbar-btn" href="#" layout="../layout/map_input.php"
-                                page="../map/map_input.php" target_div="display">เพิ่มข้อมูลอุบัติเหตุ</a></li>
+                        <li><a class="dropdown-item navbar-btn" href="#" show_type="page"
+                                layout="../layout/map_input.php" page="../map/map_input.php"
+                                target_div="display">เพิ่มข้อมูลอุบัติเหตุ</a></li>
                         <li><a class="dropdown-item" href="#">Another action</a></li>
                         <li>
                             <hr class="dropdown-divider">
@@ -64,10 +66,12 @@ include "../include/function.php";
                     <div class="col-lg-auto col-12">
                         <div class="row py-2">
                             <div class="col-auto">
-                                <a class="nav-link" href="#"><i class="bi bi-fullscreen"></i></a>
+                                <a class="nav-link fullscreen-enter" href="#"><i class="bi bi-fullscreen"
+                                        data-bs-toggle="tooltip" title="แสดงเต็มหน้าจอ"></i></a>
                             </div>
                             <div class="col-auto">
-                                <a class="nav-link" href="#"><i class="bi bi-fullscreen-exit"></i></a>
+                                <a class="nav-link fullscreen-exit" href="#"><i class="bi bi-fullscreen-exit"
+                                        data-bs-toggle="tooltip" title="ออกจากการแสดงเต็มหน้าจอ"></i></a>
                             </div>
                         </div>
                     </div>
@@ -85,13 +89,13 @@ if ($_SESSION['user_id_' . $config['projectname']] > 0) {
                                     <?php echo $_SESSION['line_login_userData_' . $config['projectname']]['displayName']; ?>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item navbar-btn" href="#" layout="../layout/user.php"
-                                            page="../user/profile.php" target_div="display"><i
-                                                class="bi bi-person-vcard-fill"></i>
+                                    <li><a class="dropdown-item navbar-btn" href="#" show_type="popup"
+                                            layout="../layout/user.php" page="../user/profile.php"
+                                            target_div="display"><i class="bi bi-person-vcard-fill"></i>
                                             ข้อมูลส่วนตัว</a></li>
-                                    <li><a class="dropdown-item navbar-btn" href="#" layout="../layout/dashboard01.php"
-                                            page="../dashboard/dashboard01.php" target_div="display"><i
-                                                class="bi bi-person-check-fill"></i>
+                                    <li><a class="dropdown-item navbar-btn" href="#" show_type="page"
+                                            layout="../layout/dashboard01.php" page="../dashboard/dashboard01.php"
+                                            target_div="display"><i class="bi bi-person-check-fill"></i>
                                             แก้ไขข้อมูลส่วนตัว</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -120,12 +124,49 @@ if ($_SESSION['user_id_' . $config['projectname']] > 0) {
 
 <script>
 $(function() {
-    loadPage("", "../layout/dashboard.php", "display");
+    if (user_profile_fullscreen === '1') {
+        $("#root div:first").removeClass("container").addClass("container-fluid");
+        $(".fullscreen-enter").parent().hide();
+        $(".fullscreen-exit").parent().show();
+    } else {
+        $(".fullscreen-enter").parent().show();
+        $(".fullscreen-exit").parent().hide();
+    }
+
+    if (current_page['layout']) {
+        loadPage("", current_page['layout'], "display");
+    } else {
+        loadPage("", "../layout/dashboard.php", "display");
+    }
     $(document).on("click touchstart", ".navbar-btn", function(e) {
+        $('#navbarSupportedContent').collapse('hide');
         e.preventDefault();
         setActiveSidebar($(this));
-        loadPage($(this).attr("layout"), $(this).attr("page"), $(this).attr("target_div"));
-        setCurrentPage($(this).attr("layout"), $(this).attr("page"), $(this).attr("target_div"));
+        switch ($(this).attr("show_type")) {
+            case "popup":
+                loadPopup($(this).attr("page"));
+                break;
+            case "page":
+            default:
+                loadPage($(this).attr("layout"), $(this).attr("page"), $(this).attr("target_div"));
+                setCurrentPage($(this).attr("layout"), $(this).attr("page"), $(this).attr(
+                    "target_div"));
+                break;
+        }
+    });
+    $(document).on("click touchstart", ".fullscreen-enter", function(e) {
+        e.preventDefault();
+        $("#root div:first").removeClass("container").addClass("container-fluid");
+        $(".fullscreen-enter").parent().hide();
+        $(".fullscreen-exit").parent().show();
+        setProfile("fullscreen", "1");
+    });
+    $(document).on("click touchstart", ".fullscreen-exit", function(e) {
+        e.preventDefault();
+        $("#root div:first").removeClass("container-fluid").addClass("container");
+        $(".fullscreen-enter").parent().show();
+        $(".fullscreen-exit").parent().hide();
+        setProfile("fullscreen", "0");
     });
 })
 </script>
