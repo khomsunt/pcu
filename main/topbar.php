@@ -63,6 +63,15 @@ include "../include/functioin.php";
                     </div>
                     <div class="col-lg-4 col-12">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="bi bi-fullscreen"></i></a>
+                            </li>
+                            <li class="nav-item" tooltip="Exit fullscreen">
+                                <a class="nav-link" href="#"><i class="bi bi-fullscreen-exit"></i></a>
+                            </li>
+
+
+
                             <?php
 if (isset($_SESSION['ses_login_userData_val_pcu'])) {
     ?>

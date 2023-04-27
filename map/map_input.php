@@ -1,3 +1,8 @@
+<?php
+include "../include/connection.php";
+include "../include/function.php";
+?>
+
 <div id="googleTitle">
     <h1>My First Google Map</h1>
 </div>
@@ -189,19 +194,23 @@
                                         <option value="9">อื่นๆ</option>
                                         <option value="10">มีวัสดุพิเศษ</option>
                                     </select><br>
-                                    ลักษะสำคัญของสภาพอากาศ
-                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                        <option selected>เลือกลักษณะของสภาพอากาศ</option><br>
-                                        <option value="1">หมอกลง</option>
-                                        <option value="2">หมอกลงจัด</option>
-                                        <option value="3">ฝนตก</option>
-                                        <option value="4">ฝนตกหนัก</option>
-                                        <option value="5">หมอกควัน</option>
-                                        <option value="6">น้ำท่วมขัง</option>
-                                        <option value="7">ไม่ทราบ</option>
-                                        <option value="8">ระบุไม่ได้</option>
-                                        <option value="9">อื่นๆ</option>
-                                    </select><br>
+                                    <div class="mb-3">
+                                        <label for="climate_id" class="form-label">ลักษะสำคัญของสภาพอากาศ</label>
+                                        <select id="climate_id" name="climate_id" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                            <option selected>เลือกลักษณะของสภาพอากาศ</option><br>
+                                            <?php
+$sql = "select * from climate where status_id=:status_id order by climate_id";
+$stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+$stmt->execute(['status_id' => 1]);
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    ?>
+                                            <option value="<?php echo $row['climate_id']; ?>">
+                                                <?php echo $row['climate_name']; ?></option>
+                                            <?php
+}?>
+                                        </select>
+                                    </div>
                                     <div class="mb-3">
                                         <label for="Textarea-ACC" class="form-label">รายระเอียดจุดเกิดอุบติเหตุ</label>
                                         <textarea class="form-control" id="Textarea-ACC" rows="3"></textarea>
