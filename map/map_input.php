@@ -189,6 +189,7 @@ include "../include/function.php";
                                         </select>
                                     </div>
 
+                                    
                                     <div class="mb-3">
                                         <label for="climate_id" class="form-label">ลักษณะสำคัญของสภาพอากาศ</label>
                                         <!-- บรรทัดนี้ทำให้เมื่อนำเมาส์ไปชี้ที่คำว่า "ลักษะสำคัญของสภาพอากาศ" จะขึ้นแสงที่ช่อง seclect-->
