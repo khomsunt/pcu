@@ -6,5 +6,7 @@ unset(
     $_SESSION['ses_login_accToken_val_' . $config['projectname']],
     $_SESSION['ses_login_refreshToken_val_' . $config['projectname']],
     $_SESSION['ses_login_userData_val_' . $config['projectname']],
+    $_SESSION['line_login_userData_' . $config['projectname']],
+    $_SESSION['user_id_' . $config['projectname']],
 );
 $LineLogin->redirect('../main/');

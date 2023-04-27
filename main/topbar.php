@@ -1,6 +1,6 @@
 <?php
 include "../include/connection.php";
-include "../include/functioin.php";
+include "../include/function.php";
 
 ?>
 <nav id="mainTopbar" class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
@@ -54,31 +54,35 @@ include "../include/functioin.php";
             </ul>
             <span class="navbar-text" style="padding-top:0px; padding-bottom:0px;">
                 <div class="row">
-                    <div class="col-lg-8 col-12">
+                    <div class="col-lg-auto col-12">
                         <form class="d-flex" role="search">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
 
                     </div>
-                    <div class="col-lg-4 col-12">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
+                    <div class="col-lg-auto col-12">
+                        <div class="row py-2">
+                            <div class="col-auto">
                                 <a class="nav-link" href="#"><i class="bi bi-fullscreen"></i></a>
-                            </li>
-                            <li class="nav-item" tooltip="Exit fullscreen">
+                            </div>
+                            <div class="col-auto">
                                 <a class="nav-link" href="#"><i class="bi bi-fullscreen-exit"></i></a>
-                            </li>
-
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-auto col-12">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 
                             <?php
-if (isset($_SESSION['ses_login_userData_val_pcu'])) {
+if ($_SESSION['user_id_' . $config['projectname']] > 0) {
     ?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    <i class="bi bi-person-fill"></i> ผู้ใช้งาน
+                                    <i class="bi bi-person-fill"></i>
+                                    <?php echo $_SESSION['line_login_userData_' . $config['projectname']]['displayName']; ?>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li><a class="dropdown-item navbar-btn" href="#" layout="../layout/user.php"
