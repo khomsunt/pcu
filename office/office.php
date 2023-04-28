@@ -9,7 +9,6 @@
         <span class="badge bg-primary rounded-pill">14</span>
     </div>
 
-
     <table id="office-table" class="display" style="width:100%">
         <thead>
             <tr>
