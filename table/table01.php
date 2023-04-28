@@ -7,6 +7,8 @@
             <th>Age</th>
             <th>Start date</th>
             <th>Salary</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tfoot>
@@ -17,6 +19,8 @@
             <th>Age</th>
             <th>Start date</th>
             <th>Salary</th>
+            <th></th>
+            <th></th>
         </tr>
     </tfoot>
 </table>
@@ -31,23 +35,45 @@ $(function() {
         ajax: {
             url: '../table/table01_ajax.php',
         },
-        columns: [{
+        columnDefs: [{
+                targets: 0,
+                "searchable": false,
                 data: 'Name'
             },
             {
+                targets: 1,
+                "searchable": false,
                 data: 'Position'
             },
             {
+                targets: 2,
+                "searchable": false,
                 data: 'Office'
             },
             {
+                targets: 3,
+                "searchable": false,
                 data: 'Age'
             },
             {
+                targets: 4,
+                "searchable": false,
                 data: 'StartDate'
             },
             {
+                targets: 5,
+                "searchable": false,
                 data: 'Salary'
+            },
+            {
+                targets: 6,
+                data: null,
+                defaultContent: "<button class='btn btn-sm btn-primary row-edit-btn'>แก้ไข</button>",
+            },
+            {
+                targets: 7,
+                data: null,
+                defaultContent: "<button class='btn btn-sm btn-primary row-delete-btn'>ลบ</button>",
             },
         ],
     });

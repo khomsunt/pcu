@@ -50,9 +50,18 @@ include "../include/function.php";
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        ตั้งค่าระบบ
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item navbar-btn" href="#" show_type="page" layout="../layout/office.php"
+                                page="../office/office.php" target_div="display">หน่วยงาน</a>
+                        </li>
+                    </ul>
                 </li>
+
             </ul>
             <span class="navbar-text" style="padding-top:0px; padding-bottom:0px;">
                 <div class="row">
