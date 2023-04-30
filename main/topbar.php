@@ -56,8 +56,8 @@ include "../include/function.php";
                         ตั้งค่าระบบ
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item navbar-btn" href="#" show_type="page" layout="../layout/office.php"
-                                page="../office/office.php" target_div="display">หน่วยงาน</a>
+                        <li><a class="dropdown-item navbar-btn" href="#" show_type="page" layout="../layout/admin.php"
+                                page="../office/office.php" target_div="display">ผู้ดูแลระบบ</a>
                         </li>
                     </ul>
                 </li>
