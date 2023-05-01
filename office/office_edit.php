@@ -98,7 +98,7 @@ $popup_title=(isset($_POST['office_id']) and $_POST['office_id']>0)?"แก้�
                 console.log(msg);
                 if (msg=='1'){
                     $("#popup-main").modal("hide");
-                    loadPage("","../office/office.php","display",{"page":<?php echo $_POST['page']; ?>});
+                    loadPage("","../office/office.php","display",{"page":<?php echo ($_POST['page'])?$_POST['page']:0; ?>});
                 }else{
                     $("#popup-main").modal("hide");
                     $("#popup-server-error").modal("show");

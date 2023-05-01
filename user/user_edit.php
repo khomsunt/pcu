@@ -152,7 +152,7 @@ $popup_title=(isset($_POST['user_id']) and $_POST['user_id']>0)?"แก้ไข
                 console.log(msg);
                 if (msg=='1'){
                     $("#popup-main").modal("hide");
-                    loadPage("","../user/user.php","display",{"page":<?php echo $_POST['page']; ?>});
+                    loadPage("","../user/user.php","display",{"page":<?php echo ($_POST['page'])?$_POST['page']:0; ?>});
                 }else{
                     $("#popup-main").modal("hide");
                     $("#popup-server-error").modal("show");
