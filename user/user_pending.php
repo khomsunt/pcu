@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-start pt-3">
         <div class="ms-2 me-auto">
-            <div class="fw-bold h3">ทะเบียนผู้ใช้งาน</div>
+            <div class="fw-bold h3">ทะเบียนผู้ใช้งานรอการอนุมัติ</div>
         </div>
         <span class="px-3">
         </span>
@@ -71,7 +71,7 @@ $(function() {
         ],
 
 	    ajax: $.fn.dataTable.pipeline({
-            url: '../user/user_ajax.php',
+            url: '../user/user_pending_ajax.php',
         }),
 
         createdRow: function( row, data, dataIndex ) {
@@ -143,6 +143,8 @@ $(function() {
         }?>
     });
 
+
+
     user_table.on('draw',function(){
         // console.log(user_table.page());
         // console.log(user_table.order());
@@ -151,15 +153,15 @@ $(function() {
     })
 
     $(document).on("click touchstart", ".user-edit-btn", function(e) {
-        loadPopup("../user/user_edit.php",{"user_id":$(this).parents('tr').attr("user_id"),"page":user_table.page(),"redirect_url":"../user/user.php"});
+        loadPopup("../user/user_edit.php",{"user_id":$(this).parents('tr').attr("user_id"),"page":user_table.page(),"redirect_url":"../user/user_pending.php"});
     });
 
     $(document).on("click touchstart", ".user-add-btn", function(e) {
-        loadPopup("../user/user_edit.php",{"redirect_url":"../user/user.php"});
+        loadPopup("../user/user_edit.php",{"redirect_url":"../user/user_pending.php"});
     });
 
     $(document).on("click touchstart", ".user-refresh-btn", function(e) {
-        loadPage("","../user/user.php","display");
+        loadPage("","../user/user_pending.php","display");
     });
 
     $(document).on("click touchstart", ".user-delete-btn", function(e) {
@@ -171,7 +173,7 @@ $(function() {
         $.ajax({method: "POST", url: "../user/user_delete.php", data: {user_id: user_id}}).done(function (msg) {
             if (msg=='1'){
                 $("#popup-confirm-delete").modal("hide");
-                loadPage("","../user/user.php","display");
+                loadPage("","../user/user_pending.php","display");
             }else{
                 $("#popup-confirm-delete").modal("hide");
                 $("#popup-server-error").modal("show");

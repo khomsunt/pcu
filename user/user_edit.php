@@ -36,8 +36,8 @@ $popup_title=(isset($_POST['user_id']) and $_POST['user_id']>0)?"แก้ไข
         </div>      
 
         <div class="mb-2">
-            <label for="postion_id" class="form-label">ตำแหน่ง</label>
-            <select id="postion_id" name="postion_id" class="form-select"  aria-label="Default select example">
+            <label for="position_id" class="form-label">ตำแหน่ง</label>
+            <select id="position_id" name="position_id" class="form-select"  aria-label="Default select example">
                 <option value="">เลือกตำแหน่ง</option>
                 <?php
                 $sql="select * from position where status_id=:status_id order by position_name";
@@ -129,15 +129,16 @@ $popup_title=(isset($_POST['user_id']) and $_POST['user_id']>0)?"แก้ไข
             ?>
             $.ajax({method: "POST", url: "../user/user_get.php", data: {"user_id":<?php echo $_POST['user_id']; ?>}}).done(function (msg) {
                 var user=JSON.parse(msg);
-                $("#user_code").val(user.user_code);
-                $("#user_name").val(user.user_name);
-                $("#user_type_code").val(user.user_type_code);
-                $("#ampur_fullcode").val(user.ampur_fullcode);
-                $.ajax({method: "POST", url: "../utility/get_option.php", data: {"table":"tambon","where":"ampur_fullcode='"+user.ampur_fullcode+"'"}}).done(function (msg) {
-                    $("#tambon_fullcode").html('<option value="">เลือกตำบล</option>'+msg);
-                    $("#tambon_fullcode").val(user.tambon_fullcode);
-                });
-
+                $("#prename").val(user.prename);
+                $("#user_first_name").val(user.user_first_name);
+                $("#user_last_name").val(user.user_last_name);
+                $("#cid").val(user.cid);
+                $("#position_id").val(user.position_id);
+                $("#position_level_id").val(user.position_level_id);
+                $("#office_id").val(user.office_id);
+                $("#user_type_id").val(user.user_type_id);
+                $("#user_status_id").val(user.user_status_id);
+                
                 $(".user-loading").html("");
             });
             <?php
@@ -152,7 +153,7 @@ $popup_title=(isset($_POST['user_id']) and $_POST['user_id']>0)?"แก้ไข
                 console.log(msg);
                 if (msg=='1'){
                     $("#popup-main").modal("hide");
-                    loadPage("","../user/user.php","display",{"page":<?php echo ($_POST['page'])?$_POST['page']:0; ?>});
+                    loadPage("","<?php echo $_POST['redirect_url']; ?>","display",{"page":<?php echo ($_POST['page'])?$_POST['page']:0; ?>});
                 }else{
                     $("#popup-main").modal("hide");
                     $("#popup-server-error").modal("show");

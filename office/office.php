@@ -74,6 +74,11 @@ $(function() {
             $(row).attr('office_id', data['office_id']);
         },  
 
+        initComplete: function (settings, json) {
+            console.log("json=",json);
+            updateAdminBadges();
+        },
+
         columnDefs: [
             {
                 targets: 0,
