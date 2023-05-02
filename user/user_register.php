@@ -1,0 +1,170 @@
+<?php
+include "../include/connection.php";
+include "../include/function.php";
+?>
+<div class="modal-header">
+    <h5 class="modal-title modal-label">
+        แก้ไขข้อมูลส่วนตัว
+        <span class="user-loading"><div class="spinner-border spinner-border-sm text-primary" role=" status "></div></span>
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <form id="user-register-form">
+
+        <input type="hidden" id="user_id" name="user_id" value="<?php echo $_SESSION['user_id_'.$config['projectname']]; ?>">
+
+        <div class="mb-2">
+            <label for="prename" class="form-label">คำนำหน้าชื่อ</label>
+            <input type="text" class="form-control" id="prename" name="prename" placeholder="">
+        </div>        
+
+        <div class="mb-2">
+            <label for="user_first_name" class="form-label">ชื่อ</label>
+            <input type="text" class="form-control" id="user_first_name" name="user_first_name" placeholder="">
+        </div>      
+
+        <div class="mb-2">
+            <label for="user_last_name" class="form-label">นามสกุล</label>
+            <input type="text" class="form-control" id="user_last_name" name="user_last_name" placeholder="">
+        </div>      
+
+        <div class="mb-2">
+            <label for="cid" class="form-label">เลขบัตรประชาชน</label>
+            <input type="text" class="form-control" id="cid" name="cid" placeholder="">
+        </div>      
+
+        <div class="mb-2">
+            <label for="position_id" class="form-label">ตำแหน่ง</label>
+            <select id="position_id" name="position_id" class="form-select"  aria-label="Default select example">
+                <option value="">เลือกตำแหน่ง</option>
+                <?php
+                $sql="select * from position where status_id=:status_id order by position_name";
+                $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                $stmt->execute(['status_id' => 1]);
+                while ($position = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    ?>
+                    <option value="<?php echo $position['position_id']; ?>"><?php echo $position['position_name']; ?></option>
+                    <?php
+                }?>
+            </select>      
+        </div>      
+
+        <div class="mb-2">
+            <label for="position_level_id" class="form-label">ระดับ</label></label>
+            <select id="position_level_id" name="position_level_id" class="form-select"  aria-label="Default select example">
+                <option value="">เลือกระดับ</option>
+                <?php
+                $sql="select * from position_level where status_id=:status_id order by position_level_name";
+                $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                $stmt->execute(['status_id' => 1]);
+                while ($position_level = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    ?>
+                    <option value="<?php echo $position_level['position_level_id']; ?>"><?php echo $position_level['position_level_name']; ?></option>
+                    <?php
+                }?>
+            </select>      
+        </div>      
+
+        <div class="mb-2">
+            <label for="office_id" class="form-label">หน่วยงาน</label>
+            <select id="office_id" name="office_id" class="form-select"  aria-label="Default select example">
+                <option value="">เลือกหน่วยงาน</option>
+                <?php
+                $sql="select * from office order by office_name";
+                $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                $stmt->execute();
+                while ($ampur = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    ?>
+                    <option value="<?php echo $ampur['office_id']; ?>"><?php echo $ampur['office_name']; ?></option>
+                    <?php
+                }?>
+            </select>     
+            <input type="hidden" id="office_id_old" name="office_id_old" value="">
+ 
+        </div>   
+        
+        <div class="mb-2">
+            <label for="user_type_id" class="form-label">ประเภทผู้ใช้งาน</label>
+            <select id="user_type_id" name="user_type_id" class="form-select"  aria-label="Default select example" disabled>
+                <option value="">เลือกประเภทผู้ใช้งาน</option>
+                <?php
+                $sql="select * from user_type where status_id=:status_id order by user_type_name";
+                $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                $stmt->execute(['status_id' => 1]);
+                while ($user_type = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    ?>
+                    <option value="<?php echo $user_type['user_type_id']; ?>"><?php echo $user_type['user_type_name']; ?></option>
+                    <?php
+                }?>
+            </select>      
+        </div>      
+        
+        <div class="mb-2">
+            <label for="user_status_id" class="form-label">สถานะผู้ใช้งาน</label>
+            <select id="user_status_id" name="user_status_id" class="form-select"  aria-label="Default select example" disabled>
+                <option value="">สถานะผู้ใช้งาน</option>
+                <?php
+                $sql="select * from user_status where status_id=:status_id order by user_status_name";
+                $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                $stmt->execute(['status_id' => 1]);
+                while ($user_status = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    ?>
+                    <option value="<?php echo $user_status['user_status_id']; ?>"><?php echo $user_status['user_status_name']; ?></option>
+                    <?php
+                }?>
+            </select>      
+        </div>              
+
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary save-btn">บันทึก</button>
+    <button type="button" class="btn btn-warning cancel-btn" data-bs-dismiss="modal" aria-label="Close">ยกเลิก</button>
+</div>   
+
+<script>
+    $(function(){
+        <?php
+        if (isset($_SESSION['user_id_'.$config['projectname']]) and $_SESSION['user_id_'.$config['projectname']]>0){
+            ?>
+            $.ajax({method: "POST", url: "../user/user_get.php", data: {"user_id":<?php echo $_SESSION['user_id_'.$config['projectname']]; ?>}}).done(function (msg) {
+                var user=JSON.parse(msg);
+                $("#prename").val(user.prename);
+                $("#user_first_name").val(user.user_first_name);
+                $("#user_last_name").val(user.user_last_name);
+                $("#cid").val(user.cid);
+                $("#position_id").val(user.position_id);
+                $("#position_level_id").val(user.position_level_id);
+                $("#office_id").val(user.office_id);
+                $("#office_id_old").val(user.office_id);
+                $("#user_type_id").val(user.user_type_id);
+                $("#user_status_id").val(user.user_status_id);
+                if (user.user_status_id=='1'){
+                    $("#office_id").prop('disabled', false);
+                }else{
+                    $("#office_id").prop('disabled', true);
+                }
+                $(".user-loading").html("");
+            });
+            <?php
+        }else{
+            ?>
+            $(".user-loading").html("");
+            <?php
+        } ?>
+
+        $(".save-btn").on("click touchstart", function(){
+            $.ajax({method: "POST", url: "../user/user_register_save.php", data: $("#user-register-form").serialize()}).done(function (msg) {
+                console.log(msg);
+                if (msg=='1'){
+                    $("#popup-main").modal("hide");
+                }else{
+                    $("#popup-main").modal("hide");
+                    $("#popup-server-error").modal("show");
+                }
+            });
+        });
+    })
+</script>

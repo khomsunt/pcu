@@ -13,6 +13,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <script>
 var rows = <?php echo json_encode($rows); ?>;
+console.log(rows);
 var chart_div = $("#myChart01-0");
 new Chart(chart_div, {
     plugins: [ChartDataLabels],
@@ -41,7 +42,13 @@ new Chart(chart_div, {
                     size: 12
                 }
             }
+        },
+        onClick: function (e, items) {
+            console.log(rows[items[0].index]);
+            // var activePointLabel = this.getElementsAtEvent(e)[0]._model.label;
+            // alert(activePointLabel);
         }
+
     }
 });
 </script>

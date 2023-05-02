@@ -1,28 +1,22 @@
-<div class="container-fluid col-12 p-4 bg-primary text-white shadow">
-    <div class="row">
-        <div class="col-lg-8 col-12 pt-4">
-            <h1><i class="bi bi-ubuntu"></i> PCU Dashboard</h1>
-            <p class="text-info">dashboard overview and content summary</p>
-            <br><br><br><br>
-        </div>
-        <div class="col-lg-4 col-12 pt-4">
-            <input id="startDate" class="form-control" type="date" />
+<?php
+include "../include/connection.php";
+include "../include/function.php";
 
-        </div>
-    </div>
-</div>
+$sql = "select ky.*,k.kpi_name from kpi_year ky left join kpi k on ky.kpi_id=k.kpi_id where ky.kpi_year_id=:kpi_year_id";
+$stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+$stmt->execute(['kpi_year_id' => $_POST['kpi_year_id']]);
+$kpi = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
 
-<div class="row p-4" style="margin-top:-150px;">
+<div class="row p-4">
     <div class="col-12 p-2">
         <div class="card shadow">
-            <div class="card-body p-5">
+            <div class="card-body">
                 <div class="row">
-                    <div class="col-lg col-12">
-                        <h1 class="text-primary">ดัชนีวัดความสำเร็จตามเป้าหมายของหน่วยบริการปฐมภูมิ</h1>
-                        ในจังหวัดสกลนคร ประจำปีงบประมาณ 2566
-                    </div>
-                    <div class="col-lg-auto col-12">
-                        <img src="../image/at-work.svg" width="200px" alt="" srcset="">
+                    <div class="col-12">
+                        <h4 class="text-primary">
+                            <?php echo $kpi['kpi_no'].". ".$kpi['kpi_name']; ?>
+                        </h4>
                     </div>
                 </div>
             </div>

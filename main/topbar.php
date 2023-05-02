@@ -102,8 +102,8 @@ if ($_SESSION['user_id_' . $config['projectname']] > 0) {
                                             layout="../layout/user.php" page="../user/profile.php"
                                             target_div="display"><i class="bi bi-person-vcard-fill"></i>
                                             ข้อมูลส่วนตัว</a></li>
-                                    <li><a class="dropdown-item navbar-btn" href="#" show_type="page"
-                                            layout="../layout/dashboard01.php" page="../dashboard/dashboard01.php"
+                                    <li><a class="dropdown-item navbar-btn" href="#" show_type="popup"
+                                            layout="../layout/user.php" page="../user/user_register.php"
                                             target_div="display"><i class="bi bi-person-check-fill"></i>
                                             แก้ไขข้อมูลส่วนตัว</a></li>
                                     <li>
@@ -151,13 +151,19 @@ $(function() {
         $('#navbarSupportedContent').collapse('hide');
         e.preventDefault();
         setActiveSidebar($(this));
+        var this_params={};
+        $.each(this.attributes, function() {
+            if ($.inArray(this.name, ['class','href']) === -1){
+                this_params[this.name]=this.value;
+            }
+        });
         switch ($(this).attr("show_type")) {
             case "popup":
-                loadPopup($(this).attr("page"));
+                loadPopup($(this).attr("page"),this_params);
                 break;
             case "page":
             default:
-                loadPage($(this).attr("layout"), $(this).attr("page"), $(this).attr("target_div"));
+                loadPage($(this).attr("layout"), $(this).attr("page"), $(this).attr("target_div"), this_params);
                 setCurrentPage($(this).attr("layout"), $(this).attr("page"), $(this).attr(
                     "target_div"));
                 break;
