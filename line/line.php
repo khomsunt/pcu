@@ -1,6 +1,6 @@
 <?php 
 function notify_message($message,$token){
-	// error_log("message=".$message." token=".$token);
+	error_log("message=".$message." token=".$token,0);
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://notify-api.line.me/api/notify");
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
