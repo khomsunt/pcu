@@ -8,7 +8,7 @@ include "../include/function.php";
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-    <form id="__map_sos_insert_save_php">
+    <form id="accident">
         <div class="mb-1">
             <label for="sos_type_id" class="form-label">ประเภทการแจ้งเหตุ</label>
             <div class="container">
@@ -16,29 +16,29 @@ include "../include/function.php";
 
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-                            data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
-                            aria-selected="true">กู้ภัย</button>
+                        <button class="nav-link active" id="ambulance_id" data-bs-toggle="tab"
+                            data-bs-target="#ambulance_id-pane" type="button" role="tab"
+                            aria-controls="ambulance_id-pane" aria-selected="true">กู้ภัย</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                            data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
+                        <button class="nav-link" id="victim_id" data-bs-toggle="tab" data-bs-target="#victim_id-pane"
+                            type="button" role="tab" aria-controls="victim_id-pane"
                             aria-selected="false">ผู้ประสบอุบัติเหตุ</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
-                            data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane"
+                        <button class="nav-link" id="vehicle_id" data-bs-toggle="tab" data-bs-target="#vehicle_id-pane"
+                            type="button" role="tab" aria-controls="vehicle_id-pane"
                             aria-selected="false">รายระเอียดยานพาหนะ</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="disabled-tab" data-bs-toggle="tab"
-                            data-bs-target="#disabled-tab-pane" type="button" role="tab"
-                            aria-controls="disabled-tab-pane" aria-selected="false">รายระเอียดจุดเกิดอุบัติเหตุ</button>
+                        <button class="nav-link" id="road_id-tab" data-bs-toggle="tab" data-bs-target="#road_id-pane"
+                            type="button" role="tab" aria-controls="road_id-pane"
+                            aria-selected="false">รายระเอียดจุดเกิดอุบัติเหตุ</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
-                        tabindex="0">
+                    <div class="tab-pane fade show active" id="ambulance_id-pane" role="tabpanel"
+                        aria-labelledby="ambulance_id" tabindex="0">
 
 
                         <div class="mb-3">
@@ -53,7 +53,7 @@ include "../include/function.php";
                         </div>
                     </div>
                     <!-- รายระเอียดผู้ป่วย -->
-                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                    <div class="tab-pane fade" id="victim_id-pane" role="tabpanel" aria-labelledby="victim_id"
                         tabindex="0">
                         <select class="mb-1">
                             <option selected>เลือกชื่อขึ้นต้น</option>
@@ -77,7 +77,7 @@ include "../include/function.php";
 
                     <!-- รายระเอียดรถของผู้ประสบเหตุ -->
 
-                    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                    <div class="tab-pane fade" id="vehicle_id-pane" role="tabpanel" aria-labelledby="vehicle_id"
                         tabindex="0">
                         รถของผู้ประสบอุบัติเหตุ
                         <select class="mb-3 form-select form-select-sm" aria-label=".form-select-sm example">
@@ -159,15 +159,15 @@ include "../include/function.php";
                                 aria-label=".form-select-sm example">
                                 <option selected>เลือกถนน</option>
                                 <?php
-$sql = "select * from road where status_id=:status_id order by road_id";
-$stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-$stmt->execute(['status_id' => 1]);
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    ?>
+                                    $sql = "select * from road where status_id=:status_id order by road_id";
+                                    $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                                    $stmt->execute(['status_id' => 1]);
+                                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                        ?>
                                 <option value="<?php echo $row['road_id']; ?>">
                                     <?php echo $row['road_name']; ?></option>
                                 <?php
-}?>
+                                    }?>
                             </select>
                         </div>
 
@@ -179,19 +179,19 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                 aria-label=".form-select-sm example">
                                 <option selected>เลือกลักษณะของสภาพอากาศ</option>
                                 <?php
-$sql = "select * from climate where status_id=:status_id order by climate_id";
-// บรรทัดบนเป็นตัวเลือกคอลั่มในฐานะข้อมูล
-$stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-$stmt->execute(['status_id' => 1]);
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-// บรรทัดบนถ้าไม่ใส่ while มันจะแสดงแค่อันเดียว  ต้องวนซ้ำใส่สำหรับอันที่มีหลายตัวเลือก
-    ?>
+                                    $sql = "select * from climate where status_id=:status_id order by climate_id";
+                                    // บรรทัดบนเป็นตัวเลือกคอลั่มในฐานะข้อมูล
+                                    $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                                    $stmt->execute(['status_id' => 1]);
+                                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    // บรรทัดบนถ้าไม่ใส่ while มันจะแสดงแค่อันเดียว  ต้องวนซ้ำใส่สำหรับอันที่มีหลายตัวเลือก
+                                        ?>
                                 <option value="<?php echo $row['climate_id']; ?>">
                                     <?php echo $row['climate_name']; ?></option>
                                 <!-- สองบรรทัดด้านบนเป็นตัวเรียก id กับ name จาก MySQL -->
                                 <?php
-//ใส่ <?php เพื่อปิดฟังก์ชั่นการวนลูป
-}?>
+                                    //ใส่ <?php เพื่อปิดฟังก์ชั่นการวนลูป
+                                   }?>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -225,6 +225,29 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-primary save-btn">บันทึก</button>
+    <button type="button" class="btn btn-warning cancel-btn" data-bs-dismiss="modal" aria-label="Close">ยกเลิก</button>
 </div>
+<script>
+$(function() {
+    $(".save-btn").on("click touchstart", function() {
+        console.log('ddd');
+        $.ajax({
+            method: "POST",
+            url: "../map/map_input_save.php",
+            data: $("#map_form").serialize()
+        }).done(function(msg) {
+            console.log(msg);
+            if (msg == '1') {
+                $("#popup-main").modal("hide");
+                loadPage("", "../office/office.php", "display", {
+                    "page": <?php echo ($_POST['page'])?$_POST['page']:0; ?>
+                });
+            } else {
+                $("#popup-main").modal("hide");
+                $("#popup-server-error").modal("show");
+            }
+        });
+    });
+})
+</script>
