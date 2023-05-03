@@ -15,7 +15,9 @@ $kpi = $stmt->fetch(PDO::FETCH_ASSOC);
                 <div class="row">
                     <div class="col-12">
                         <h4 class="text-primary">
-                            <?php echo $kpi['kpi_no'].". ".$kpi['kpi_name']; ?>
+                            <?php 
+                            echo $kpi['kpi_no'].". ".$kpi['kpi_name'];
+                            ?>
                         </h4>
                     </div>
                 </div>
@@ -32,7 +34,7 @@ $kpi = $stmt->fetch(PDO::FETCH_ASSOC);
                     <i class="bi bi-table"></i>
                 </span>
             </div>
-            <div class="card-body" id="chart01-0">
+            <div class="card-body" id="chart01-4">
             </div>
         </div>
     </div>
@@ -41,7 +43,7 @@ $kpi = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="card-header">
                 สสจ.
             </div>
-            <div class="card-body" id="chart01-1">
+            <div class="card-body" id="chart01-5">
             </div>
         </div>
     </div>
@@ -50,7 +52,7 @@ $kpi = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="card-header">
                 อบจ.
             </div>
-            <div class="card-body" id="chart01-2">
+            <div class="card-body" id="chart01-6">
             </div>
         </div>
     </div>
@@ -59,7 +61,7 @@ $kpi = $stmt->fetch(PDO::FETCH_ASSOC);
             <div class="card-header">
                 สสจ./อบจ.
             </div>
-            <div class="card-body" id="chart01-3">
+            <div class="card-body" id="chart01-7">
             </div>
         </div>
     </div>
@@ -79,9 +81,9 @@ $kpi = $stmt->fetch(PDO::FETCH_ASSOC);
 
 <script>
 $(function() {
-    loadPage("", "../chart/chart01-0.php", "chart01-0");
-    loadPage("", "../chart/chart01-1.php", "chart01-1");
-    loadPage("", "../chart/chart01-2.php", "chart01-2");
-    loadPage("", "../chart/chart01-3.php", "chart01-3");
+    loadPage("", "../chart/chart01-4.php", "chart01-4",<?php echo json_encode($_POST); ?>);
+    loadPage("", "../chart/chart01-5.php", "chart01-5",<?php echo json_encode($_POST); ?>);
+    loadPage("", "../chart/chart01-6.php", "chart01-6",<?php echo json_encode($_POST); ?>);
+    loadPage("", "../chart/chart01-7.php", "chart01-7",<?php echo json_encode($_POST); ?>);
 })
 </script>

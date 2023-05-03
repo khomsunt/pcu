@@ -143,9 +143,9 @@ $(function() {
     }
 
     if (current_page['layout']) {
-        loadPage("", current_page['layout'], "display");
+        loadPage("", current_page['layout'], "display",current_page['params']);
     } else {
-        loadPage("", "../layout/dashboard.php", "display");
+        loadPage("", "../layout/dashboard.php", "display",current_page['params']);
     }
     $(document).on("click touchstart", ".navbar-btn", function(e) {
         $('#navbarSupportedContent').collapse('hide');
@@ -153,7 +153,7 @@ $(function() {
         setActiveSidebar($(this));
         var this_params={};
         $.each(this.attributes, function() {
-            if ($.inArray(this.name, ['class','href']) === -1){
+            if ($.inArray(this.name, ['class','href','page','layout','target_div']) === -1){
                 this_params[this.name]=this.value;
             }
         });
@@ -165,7 +165,7 @@ $(function() {
             default:
                 loadPage($(this).attr("layout"), $(this).attr("page"), $(this).attr("target_div"), this_params);
                 setCurrentPage($(this).attr("layout"), $(this).attr("page"), $(this).attr(
-                    "target_div"));
+                    "target_div"),{params:this_params});
                 break;
         }
     });
