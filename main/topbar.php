@@ -43,7 +43,7 @@ include "../include/function.php";
                         <li><a class="dropdown-item navbar-btn" href="#" show_type="page"
                                 layout="../layout/map_input.php" page="../map/map_input.php"
                                 target_div="display">เพิ่มข้อมูลอุบัติเหตุ</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">ข้อมูลอุบัติเหตุ</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

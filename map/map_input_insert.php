@@ -31,7 +31,7 @@ include "../include/function.php";
                             aria-selected="false">รายระเอียดยานพาหนะ</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="road_id-tab" data-bs-toggle="tab" data-bs-target="#road_id-pane"
+                        <button class="nav-link" id="road_id" data-bs-toggle="tab" data-bs-target="#road_id-pane"
                             type="button" role="tab" aria-controls="road_id-pane"
                             aria-selected="false">รายระเอียดจุดเกิดอุบัติเหตุ</button>
                     </li>
@@ -154,7 +154,7 @@ include "../include/function.php";
                     <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab"
                         tabindex="0">
                         <div class="mb-3">
-                            <label for="road_id" class="form-label">เลือกถนน</label>
+                            <label for="road_id-pane" class="form-label">เลือกถนน</label>
                             <select id="road_id" name="road_id" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
                                 <option selected>เลือกถนน</option>
