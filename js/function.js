@@ -3,6 +3,7 @@ $(function () {
 });
 
 function loadPage(layout, page, target, params = {}) {
+    console.log("loadpage params=", params);
     $("#" + target).html('<div class="d-flex justify-content-center p-1"><div class="spinner-border text-primary" role=" status "></div></div>');
 
     if (current_page['layout'] === layout || layout === '') {
