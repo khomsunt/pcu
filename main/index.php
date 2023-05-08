@@ -68,6 +68,15 @@ if (isset($_SESSION['current_page'])) {
         </div>
     </div>
 
+    <div class="modal fade" id="popup-sub" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+
     <div class="modal fade" id="popup-confirm-delete" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-hidden="true" style="display: none;">
         <div class="modal-dialog">

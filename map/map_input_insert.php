@@ -8,7 +8,7 @@ include "../include/function.php";
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-    <form id="accident">
+    <form id="map_form">
         <div class="mb-1">
             <label for="sos_type_id" class="form-label">ประเภทการแจ้งเหตุ</label>
             <div class="container">
@@ -52,54 +52,54 @@ include "../include/function.php";
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                     </div>
+
                     <!-- รายระเอียดผู้ป่วย -->
+
                     <div class="tab-pane fade" id="victim_id-pane" role="tabpanel" aria-labelledby="victim_id"
                         tabindex="0">
-                        <select class="mb-1">
-                            <option selected>เลือกชื่อขึ้นต้น</option>
-                            <option value="1">นาย</option>
-                            <option value="2">นางสาว</option>
-                            <option value="3">นาง</option>
-                            <option value="4">ด.ญ.</option>
-                            <option value="5">ด.ช.</option>
-                        </select>
-                        <div>
-                            <label for="fname">First name:</label>
-                            <input type="text" id="fname" name="fname" value="---">
-                            <label for="lname">Last name:</label>
-                            <input type="text" id="lname" name="lname" value="---"><br>
-                            <label for="sex">เพศ :</label>
-                            <input type="text" id="sex" name="sex" value="---">
-                            <label for="age">อายุ :</label>
-                            <input type="text" id="age" name="age" value="---">
-                        </div><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
 
                     <!-- รายระเอียดรถของผู้ประสบเหตุ -->
 
                     <div class="tab-pane fade" id="vehicle_id-pane" role="tabpanel" aria-labelledby="vehicle_id"
                         tabindex="0">
-                        รถของผู้ประสบอุบัติเหตุ
-                        <select class="mb-3 form-select form-select-sm" aria-label=".form-select-sm example">
-                            <option selected>เลือกประเภทรถ</option><br>
-                            <option value="1">เดินเท้า</option>
-                            <option value="2">จักรยาน</option>
-                            <option value="3">จักรยานไฟฟ้า</option>
-                            <option value="4">จักรยานยนต์</option>
-                            <option value="5">รถกระบะ(บิกอัพ)</option>
-                            <option value="6">รถเก๋ง</option>
-                            <option value="7">สามล้อเคลื่อน</option>
-                            <option value="8">รถซาเล้ง</option>
-                            <option value="9">รถแท็กซี่</option>
-                            <option value="10">รถตู้ทั่วไป</option>
-                            <option value="11">รถสองแถว</option>
-                            <option value="12">รถโดยสาร 6 ล้อ</option>
-                            <option value="13">รถบรรทุก 6 ล้อ</option>
-                            <option value="14">รถไถนา</option>
-                            <option value="15">รถดัดแปลง</option>
-                            <option value="16">สัตว์ตัดหน้า</option>
-                            <option value="17">ไม่มี</option>
-                        </select><br>
+                        <div class="mb-3">
+                            <label for="vehicle_type_id" class="form-label">รถของผู้ประสบเหตุ</label>
+                            <select id="vehicle_type_id" name="vehicle_type_id" class="form-select form-select-sm"
+                                aria-label=".form-select-sm example">
+                                <option value="" selected>เลือกประเภทรถ</option><br>
+                                <?php
+                                    $sql = "select * from vehicle_type where status_id=:status_id order by vehicle_type_id";
+                                    $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                                    $stmt->execute(['status_id' => 1]);
+                                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                        ?>
+                                <option value="<?php echo $row['vehicle_type_id']; ?>">
+                                    <?php echo $row['vehicle_type_name']; ?></option>
+                                <?php
+                                   }?>
+                            </select><br>
+                        </div>
                         รถของคุ่กรณี
                         <select class="mb-3 form-select form-select-sm" aria-label=".form-select-sm example">
                             <option selected>เลือกประเภทรถ</option><br>
@@ -151,13 +151,13 @@ include "../include/function.php";
 
                     <!-- รายระเอียดจุดเกิดอุบัติเหตุ -->
 
-                    <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab"
+                    <div class="tab-pane fade" id="road_id-pane" role="tabpanel" aria-labelledby="disabled-tab"
                         tabindex="0">
                         <div class="mb-3">
-                            <label for="road_id-pane" class="form-label">เลือกถนน</label>
+                            <label for="road_id" class="form-label">เลือกถนน</label>
                             <select id="road_id" name="road_id" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
-                                <option selected>เลือกถนน</option>
+                                <option value="" selected>เลือกถนน</option>
                                 <?php
                                     $sql = "select * from road where status_id=:status_id order by road_id";
                                     $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
@@ -177,7 +177,7 @@ include "../include/function.php";
                             <!-- บรรทัดนี้ทำให้เมื่อนำเมาส์ไปชี้ที่คำว่า "ลักษะสำคัญของสภาพอากาศ" จะขึ้นแสงที่ช่อง seclect-->
                             <select id="climate_id" name="climate_id" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
-                                <option selected>เลือกลักษณะของสภาพอากาศ</option>
+                                <option value="" selected>เลือกลักษณะของสภาพอากาศ</option>
                                 <?php
                                     $sql = "select * from climate where status_id=:status_id order by climate_id";
                                     // บรรทัดบนเป็นตัวเลือกคอลั่มในฐานะข้อมูล
@@ -230,8 +230,9 @@ include "../include/function.php";
 </div>
 <script>
 $(function() {
+    loadPage("", "../map/map_input_insert_victim.php", "victim_id-pane", {});
     $(".save-btn").on("click touchstart", function() {
-        console.log('ddd');
+        console.log('ddd', $("#map_form").serialize());
         $.ajax({
             method: "POST",
             url: "../map/map_input_save.php",

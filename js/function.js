@@ -25,6 +25,14 @@ function loadPopup(url, params = {}) {
     });
 }
 
+function loadSubPopup(url, params = {}) {
+    $("#popup-sub").modal("show");
+    $("#popup-sub .modal-content").html('<div class="d-flex justify-content-center p-1"><div class="spinner-border text-primary" role=" status "></div></div>');
+    $.ajax({method: "POST", url: url, data: params}).done(function (msg) {
+        $("#popup-sub .modal-content").html(msg);
+    });
+}
+
 function setCurrentPage(layout, page, target, params = {}) {
     layout = (layout) ? layout : current_page['layout'];
     params.target_div = target;
