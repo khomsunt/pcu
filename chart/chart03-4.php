@@ -8,36 +8,54 @@ $kpi=getKpi($_POST['kpi_year_id']);
     var kpi = <?php echo json_encode($kpi); ?>;
 </script>
 <?php
-$now_thai_year=date("Y")+543;
-$now_month=date("m");
 
-$sql = "select q1.ampur_fullcode,q2.ampur_name,format(q2.sum_percent/q1.count_office,2) as avg_percent,format(q2.sum_percent_moph/q1.count_office_moph,2) as avg_percent_moph,format(q2.sum_percent_pao/q1.count_office_pao,2) as avg_percent_pao from
-(select o.ampur_fullcode,count(*) as count_office,sum(if(o.belong_to='moph',1,0)) as count_office_moph,sum(if(o.belong_to='pao',1,0)) as count_office_pao from office as o where o.office_type_code in ('03','06','07','08','12','13') group by o.ampur_fullcode) as q1 left join
-(select s.ampur_fullcode,s.ampur_name,sum(s.percent) as sum_percent,sum(if(o.belong_to='moph',s.percent,0)) as sum_percent_moph,sum(if(o.belong_to='pao',s.percent,0)) as sum_percent_pao from sum_hospital s left join office o on s.office_code=o.office_code ".(($_POST['kpi_year_id']>0)?" where s.kpi_year_id=".$_POST['kpi_year_id']:"")." AND s.year='".$now_thai_year."' AND s.month='".$now_month."'  group by s.ampur_fullcode) as q2 on q1.ampur_fullcode=q2.ampur_fullcode";
+
+$sql = "SELECT
+	o.office_code,
+	o.office_name_short,
+	s.percent 
+FROM
+	(
+	SELECT
+		* 
+	FROM
+		office o 
+	WHERE
+		o.ampur_fullcode = '".$_POST['ampur_fullcode']."' 
+	AND o.office_type_code IN ( '03', '06', '07', '08', '12', '13' )) AS o
+	LEFT JOIN (
+	SELECT
+		s.office_code,
+		s.office_name,
+		s.percent 
+	FROM
+		sum_hospital s 
+	WHERE
+        s.kpi_year_id='".$_POST['kpi_year_id']."' AND
+		s.ampur_fullcode = '".$_POST['ampur_fullcode']."' 
+	) AS s ON o.office_code = s.office_code";
 
 $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
 $stmt->execute();
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+print_r($_POST);
 ?>
 <div>
-    <canvas id="myChart01-7"></canvas>
+    <canvas id="myChart03-4"></canvas>
 </div>
 
 <script>
 var rows = <?php echo json_encode($rows); ?>;
-
-new Chart($("#myChart01-7"), {
+// console.log(rows);
+var chart_div = $("#myChart03-4");
+new Chart(chart_div, {
     plugins: [ChartDataLabels],
     type: 'bar',
     data: {
-        labels: rows.map(row => row.ampur_name),
+        labels: rows.map(row => row.office_name_short),
         datasets: [{
-            label: 'สสจ.',
-            data: rows.map(row => row.avg_percent_moph),
-            borderWidth: 1
-        }, {
-            label: 'อบจ.',
-            data: rows.map(row => row.avg_percent_pao),
+            label: 'คะแนนรวม',
+            data: rows.map(row => row.percent),
             borderWidth: 1
         }]
     },
@@ -51,9 +69,10 @@ new Chart($("#myChart01-7"), {
             datalabels: {
                 anchor: 'end',
                 align: 'top',
+                formatter: Math.round,
                 font: {
                     weight: 'normal',
-                    size: 10
+                    size: 12
                 }
             },
             annotation: {
@@ -78,8 +97,23 @@ new Chart($("#myChart01-7"), {
                     }
                 }
             },
+        },
+        onClick: function (e, items) {
+            console.log(rows[items[0].index]);
+            var this_params={};
+            console.log(this_params);
+            this_params.office_code=rows[items[0].index].office_code;
+            this_params.kpi_year_id=<?php echo $_POST['kpi_year_id']; ?>;
+            console.log(this_params);
+            setCurrentPage("", "../dashboard/dashboard_kpi_ampur_table.php", "display",{params:this_params});
 
+            loadPage("", "../dashboard/dashboard_kpi_ampur_table.php", "display",this_params);
+
+            // var activePointLabel = this.getElementsAtEvent(e)[0]._model.label;
+            // alert(activePointLabel);
         }
+
+
     }
 });
 </script>

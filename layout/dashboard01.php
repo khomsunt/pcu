@@ -1,4 +1,5 @@
 <script>
+var office_level='changwat';
 $(function() {
     // console.log("current_page=",current_page);
     loadPage("", "../sidebar/dashboard01.php", "sidebar",current_page['params']);

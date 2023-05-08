@@ -8,6 +8,8 @@ $kpi=getKpi($_POST['kpi_year_id']);
     var kpi = <?php echo json_encode($kpi); ?>;
 </script>
 <?php
+$now_thai_year=date("Y")+543;
+$now_month=date("m");
 
 $sql="SELECT
 	q1.ampur_fullcode,
@@ -53,7 +55,7 @@ FROM
 	FROM
 		sum_hospital s
 		LEFT JOIN office o ON s.office_code = o.office_code 
-	WHERE s.kpi_year_id=".$_POST['kpi_year_id']." 
+	WHERE s.kpi_year_id=".$_POST['kpi_year_id']." AND s.year='".$now_thai_year."' AND s.month='".$now_month."'
 	GROUP BY
 	s.ampur_fullcode 
 	) AS q2 ON q1.ampur_fullcode = q2.ampur_fullcode";

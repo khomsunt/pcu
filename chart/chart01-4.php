@@ -9,6 +9,9 @@ $kpi=getKpi($_POST['kpi_year_id']);
 </script>
 <?php
 
+$now_thai_year=date("Y")+543;
+$now_month=date("m");
+
 $sql="SELECT
 	q1.ampur_fullcode,
 	q2.ampur_name,
@@ -53,7 +56,7 @@ FROM
 	FROM
 		sum_hospital s
 		LEFT JOIN office o ON s.office_code = o.office_code 
-	WHERE s.kpi_year_id=".$_POST['kpi_year_id']." 
+	WHERE s.kpi_year_id=".$_POST['kpi_year_id']." AND s.year='".$now_thai_year."' AND s.month='".$now_month."'
 	GROUP BY
 	s.ampur_fullcode 
 	) AS q2 ON q1.ampur_fullcode = q2.ampur_fullcode";
@@ -124,13 +127,20 @@ new Chart(chart_div, {
             },
 
         },
-
         onClick: function (e, items) {
             console.log(rows[items[0].index]);
+            var this_params={};
+            console.log(this_params);
+            this_params.ampur_fullcode=rows[items[0].index].ampur_fullcode;
+            this_params.kpi_year_id=<?php echo $_POST['kpi_year_id']; ?>;
+            console.log(this_params);
+            setCurrentPage("", "../dashboard/dashboard_kpi_ampur.php", "display",{params:this_params});
+
+            loadPage("", "../dashboard/dashboard_kpi_ampur.php", "display",this_params);
+
             // var activePointLabel = this.getElementsAtEvent(e)[0]._model.label;
             // alert(activePointLabel);
         }
-
     }
 });
 
