@@ -28,9 +28,36 @@ $popup_title=(isset($_POST['victim_id']) and $_POST['victim_id']>0)?"แก้�
             <label for="victim_last_name" class="form-label">นามสกุล</label>
             <input type="text" class="form-control" id="victim_last_name" name="victim_last_name" placeholder="">
         </div>
+        <div class="mb-2">
+            <label for="cid" class="form-label">เลขบัตรประชาชน</label>
+            <input type="text" class="form-control" id="cid" name="cid" placeholder="">
+        </div>      
     </form>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-primary save-btn">บันทึก</button>
     <button type="button" class="btn btn-warning cancel-btn" data-bs-dismiss="modal" aria-label="Close">ยกเลิก</button>
 </div>   
+<script>
+$(function() {
+    $(".save-btn").on("click touchstart", function() {
+        console.log('ddd', $("#map_form").serialize());
+        $.ajax({
+            method: "POST",
+            url: "../map/victim_edit_save.php",
+            data: $("#map_form").serialize()
+        }).done(function(msg) {
+            console.log(msg);
+            if (msg == '1') {
+                $("#popup-main").modal("hide");
+                loadPage("", "../office/office.php", "display", {
+                    "page": <?php echo ($_POST['page'])?$_POST['page']:0; ?>
+                });
+            } else {
+                $("#popup-main").modal("hide");
+                $("#popup-server-error").modal("show");
+            }
+        });
+    });
+})
+</script>
