@@ -15,18 +15,18 @@ $popup_title=(isset($_POST['victim_id']) and $_POST['victim_id']>0)?"แก้�
         <input type="hidden" id="victim_id" name="victim_id" value="<?php echo $_POST['victim_id']; ?>">
 
         <div class="mb-2">
-            <label for="prename" class="form-label">คำนำหน้าชื่อ</label>
-            <input type="text" class="form-control" id="prename" name="prename" placeholder="">
+            <label for="prename_code" class="form-label">คำนำหน้าชื่อ</label>
+            <input type="text" class="form-control" id="prename_code" name="prename" placeholder="">
         </div>        
 
         <div class="mb-2">
-            <label for="victim_first_name" class="form-label">ชื่อ</label>
-            <input type="text" class="form-control" id="victim_first_name" name="victim_first_name" placeholder="">
+            <label for="first_name" class="form-label">ชื่อ</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="">
         </div>      
 
         <div class="mb-2">
-            <label for="victim_last_name" class="form-label">นามสกุล</label>
-            <input type="text" class="form-control" id="victim_last_name" name="victim_last_name" placeholder="">
+            <label for="last_name" class="form-label">นามสกุล</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="">
         </div>
         <div class="mb-2">
             <label for="cid" class="form-label">เลขบัตรประชาชน</label>
