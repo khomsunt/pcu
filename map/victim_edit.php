@@ -10,14 +10,14 @@ $popup_title=(isset($_POST['victim_id']) and $_POST['victim_id']>0)?"แก้�
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-    <form id="victim-edit-form">
+    <form id="victim_form">
 
         <input type="hidden" id="victim_id" name="victim_id" value="<?php echo $_POST['victim_id']; ?>">
-
+<!-- 
         <div class="mb-2">
             <label for="prename_code" class="form-label">คำนำหน้าชื่อ</label>
             <input type="text" class="form-control" id="prename_code" name="prename" placeholder="">
-        </div>        
+        </div>         -->
 
         <div class="mb-2">
             <label for="first_name" class="form-label">ชื่อ</label>
@@ -41,11 +41,11 @@ $popup_title=(isset($_POST['victim_id']) and $_POST['victim_id']>0)?"แก้�
 <script>
 $(function() {
     $(".save-btn").on("click touchstart", function() {
-        console.log('ddd', $("#map_form").serialize());
+        console.log('ddd', $("#victim_form").serialize());
         $.ajax({
             method: "POST",
             url: "../map/victim_edit_save.php",
-            data: $("#map_form").serialize()
+            data: $("#victim_form").serialize()
         }).done(function(msg) {
             console.log(msg);
             if (msg == '1') {
