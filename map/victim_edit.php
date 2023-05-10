@@ -1,11 +1,14 @@
 <?php
 include "../include/connection.php";
 include "../include/function.php";
+print_r($_POST);
 $popup_title=(isset($_POST['victim_id']) and $_POST['victim_id']>0)?"แก้ไขข้อมูลผู้ประสบอุบัติเหตุ":"เพิ่มข้อมูลผู้ประสบอุบัติเหตุ"; ?>
 <div class="modal-header">
     <h5 class="modal-title modal-label">
         <?php echo $popup_title; ?>
-        <span class="victim-loading"><div class="spinner-border spinner-border-sm text-primary" role=" status "></div></span>
+        <span class="victim-loading">
+            <div class="spinner-border spinner-border-sm text-primary" role=" status "></div>
+        </span>
     </h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
@@ -13,16 +16,29 @@ $popup_title=(isset($_POST['victim_id']) and $_POST['victim_id']>0)?"แก้�
     <form id="victim_form">
 
         <input type="hidden" id="victim_id" name="victim_id" value="<?php echo $_POST['victim_id']; ?>">
-<!-- 
+
         <div class="mb-2">
-            <label for="prename_code" class="form-label">คำนำหน้าชื่อ</label>
-            <input type="text" class="form-control" id="prename_code" name="prename" placeholder="">
-        </div>         -->
+            <label for="prename_id" class="form-label">คำนำหน้าชื่อ</label>
+            <select id="prename_id" name="prename_id" class="form-select form-select-sm"
+                aria-label=".form-select-sm example">
+                <option value="" selected>คำนำหน้าชื่อ</option>
+                <?php
+                    $sql = "select * from prename where status_id=:status_id order by prename_id";
+                    $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
+                    $stmt->execute(['status_id' => 1]);
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {                    ?>
+                <option value="<?php echo $row['prename_id']; ?>">
+                    <?php echo $row['prename_name']; ?></option>
+                <?php
+                    }?>
+            </select>
+        </div>
+       
 
         <div class="mb-2">
             <label for="first_name" class="form-label">ชื่อ</label>
             <input type="text" class="form-control" id="first_name" name="first_name" placeholder="">
-        </div>      
+        </div>
 
         <div class="mb-2">
             <label for="last_name" class="form-label">นามสกุล</label>
@@ -31,13 +47,13 @@ $popup_title=(isset($_POST['victim_id']) and $_POST['victim_id']>0)?"แก้�
         <div class="mb-2">
             <label for="cid" class="form-label">เลขบัตรประชาชน</label>
             <input type="text" class="form-control" id="cid" name="cid" placeholder="">
-        </div>      
+        </div>
     </form>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-primary save-btn">บันทึก</button>
     <button type="button" class="btn btn-warning cancel-btn" data-bs-dismiss="modal" aria-label="Close">ยกเลิก</button>
-</div>   
+</div>
 <script>
 $(function() {
     $(".save-btn").on("click touchstart", function() {
