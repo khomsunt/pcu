@@ -1,7 +1,6 @@
 <?php
 include "../include/connection.php";
 include "../include/function.php";
-print_r($_POST);
 $popup_title=(isset($_POST['victim_id']) and $_POST['victim_id']>0)?"แก้ไขข้อมูลผู้ประสบอุบัติเหตุ":"เพิ่มข้อมูลผู้ประสบอุบัติเหตุ"; ?>
 <div class="modal-header">
     <h5 class="modal-title modal-label">
