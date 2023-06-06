@@ -5,7 +5,7 @@ include "../include/function.php";
 // print_r($_POST);
 
 // $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-// $successed=$stmt->execute(['victim_id' => $_POST['victim_id'],'prename_id'=>$_POST['prename_id'],'first_name'=>$_POST['first_name'],'last_name'=>$_POST['last_name'],'cid'=>$_POST['cid']]);
+// $successed=$stmt->execute(['road_id' => $_POST['road_id'],'road_stype_id'=>$_POST['road_stype_id'],'climate_id'=>$_POST['climate_id'],'accident_site_detail'=>$_POST['accident_site_detail'],'Km_at'=>$_POST['Km_at'],'moo'=>$_POST['moo'],'tambon_id'=>$_POST['tambon_id'],'ampur_id'=>$_POST['ampur_id'],'changwat_id'=>$_POST['changwat_id']]);
 
 if (isset($_POST['accident_id']) and $_POST['accident_id']>0){
     $accident_id=$_POST['accident_id'];
@@ -19,7 +19,7 @@ if (isset($_POST['accident_id']) and $_POST['accident_id']>0){
 
 }
 
-$sql="INSERT INTO `victim` (`victim_id`, `accident_id`, `cid`, `prename_id`, `first_name`, `last_name`) VALUES (NULL, '".$accident_id."', '".$_POST['cid']."', '".$_POST['prename_id']."', '".$_POST['first_name']."', '".$_POST['last_name']."');";
+$sql="INSERT INTO `accident_site` (`accident_site_id`,`accident_id`,`road_id`, `road_stype_id`, `climate_id`, `accident_site_detail`, `Km_at`, `moo`, `tambon_id`, `ampur_id`, `changwat_id`) VALUES (NULL, '".$accident_id."', '".$_POST['road_id']."', '".$_POST['road_stype_id']."', '".$_POST['climate_id']."', '".$_POST['accident_site_detail']."', '".$_POST['Km_at']."', '".$_POST['moo']."', '".$_POST['ampur_id']."', '".$_POST['ampur_id']."', '".$_POST['changwat_id']."');";
 $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
 $successed = $stmt->execute();
 

@@ -1,11 +1,11 @@
 <?php
 include "../include/connection.php";
-$sql = "select * from victim where accident_id=:accident_id";
+$sql = "select * from vehicle where vehicle_id=:vehicle_id";
 $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-if (($_POST['accident_id']) and ($_POST['accident_id']>0)){
-    $stmt->execute(['accident_id' => $_POST['accident_id']]);
+if (($_POST['vehicle_id']) and ($_POST['vehicle_id']>0)){
+    $stmt->execute(['vehicle_id' => $_POST['vehicle_id']]);
 }else{
-    $stmt->execute(['accident_id' => 0]);
+    $stmt->execute(['vehicle_id' => 0]);
 }
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $total_rows=count($rows);

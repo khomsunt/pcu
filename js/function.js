@@ -27,6 +27,7 @@ function loadPopup(url, params = {}) {
 }
 
 function loadSubPopup(url, params = {}) {
+    console.log("loadSubPopup params=",params);
     $("#popup-sub").modal("show");
     $("#popup-sub .modal-content").html('<div class="d-flex justify-content-center p-1"><div class="spinner-border text-primary" role=" status "></div></div>');
     $.ajax({method: "POST", url: url, data: params}).done(function (msg) {

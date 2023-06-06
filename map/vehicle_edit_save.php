@@ -5,7 +5,7 @@ include "../include/function.php";
 // print_r($_POST);
 
 // $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
-// $successed=$stmt->execute(['victim_id' => $_POST['victim_id'],'prename_id'=>$_POST['prename_id'],'first_name'=>$_POST['first_name'],'last_name'=>$_POST['last_name'],'cid'=>$_POST['cid']]);
+// $successed=$stmt->execute(['vehicle_id' => $_POST['vehicle_id'],'register_no'=>$_POST['register_no']]);
 
 if (isset($_POST['accident_id']) and $_POST['accident_id']>0){
     $accident_id=$_POST['accident_id'];
@@ -19,7 +19,7 @@ if (isset($_POST['accident_id']) and $_POST['accident_id']>0){
 
 }
 
-$sql="INSERT INTO `victim` (`victim_id`, `accident_id`, `cid`, `prename_id`, `first_name`, `last_name`) VALUES (NULL, '".$accident_id."', '".$_POST['cid']."', '".$_POST['prename_id']."', '".$_POST['first_name']."', '".$_POST['last_name']."');";
+$sql="INSERT INTO `vehicle` (`vehicle_id`,`accident_id`,`register_no`) VALUES (NULL, '".$accident_id."', '".$_POST['register_no']."');";
 $stmt = $con->prepare($sql, [PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY]);
 $successed = $stmt->execute();
 

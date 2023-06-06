@@ -13,7 +13,11 @@ $popup_title=(isset($_POST['victim_id']) and $_POST['victim_id']>0)?"แก้�
 </div>
 <div class="modal-body">
     <form id="victim_form">
+        <?php
+        print_r($_POST);
+        ?>
 
+        <input type="hidden" id="accident_id" name="accident_id" value="<?php echo $_POST['accident_id']; ?>">
         <input type="hidden" id="victim_id" name="victim_id" value="<?php echo $_POST['victim_id']; ?>">
 
         <div class="mb-2">
@@ -32,7 +36,6 @@ $popup_title=(isset($_POST['victim_id']) and $_POST['victim_id']>0)?"แก้�
                     }?>
             </select>
         </div>
-       
 
         <div class="mb-2">
             <label for="first_name" class="form-label">ชื่อ</label>
@@ -63,14 +66,14 @@ $(function() {
             data: $("#victim_form").serialize()
         }).done(function(msg) {
             console.log(msg);
-            if (msg == '1') {
-                $("#popup-main").modal("hide");
-                loadPage("", "../office/office.php", "display", {
-                    "page": <?php echo ($_POST['page'])?$_POST['page']:0; ?>
+            msg = JSON.parse(msg);
+            if (msg.success == '1') {
+                $("#popup-sub").modal("hide");
+                $("#accident_id").val(msg.accident_id);
+                loadPage("", "../map/map_input_insert_victim.php", "victim_id-pane", {
+                    "accident_id": $("#accident_id").val()
                 });
-            } else {
-                $("#popup-main").modal("hide");
-                $("#popup-server-error").modal("show");
+
             }
         });
     });
